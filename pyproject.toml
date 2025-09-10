@@ -1,7 +1,36 @@
 [project]
-name = "py-ggsci"
+name = "ggsci"
 version = "0.1.0"
-description = "Add your description here"
+description = "Plotnine color palettes inspired by plots in scientific journals, data visualization libraries, science fiction movies, and TV shows"
+authors = [
+    { name = "Nan Xiao", email = "me@nanx.me" }
+]
+dependencies = [
+    "plotnine>=0.15.0",
+]
 readme = "README.md"
+
 requires-python = ">= 3.10"
-dependencies = []
+
+[project.urls]
+Homepage = "https://nanx.me/py-ggsci/"
+Documentation = "https://nanx.me/py-ggsci/"
+Repository = "https://github.com/nanxstats/py-ggsci"
+Issues = "https://github.com/nanxstats/py-ggsci/issues"
+Changelog = "https://github.com/nanxstats/py-ggsci/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.1",
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.19",
+    "mkdocstrings-python>=1.18.2",
+    "mypy>=1.17.1",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.12.12",
+]
