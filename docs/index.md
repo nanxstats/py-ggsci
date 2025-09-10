@@ -1,4 +1,4 @@
-# ggsci for Python <img src="https://github.com/nanxstats/py-ggsci/raw/main/docs/assets/logo.png" align="right" width="120" />
+# ggsci for Python <img src="assets/logo.png" align="right" width="120" />
 
 [![PyPI version](https://img.shields.io/pypi/v/ggsci)](https://pypi.org/project/ggsci/)
 ![Python versions](https://img.shields.io/pypi/pyversions/ggsci)

@@ -1,0 +1,56 @@
+/* Color scheme */
+
+/*
+ * Color palette from: https://coolors.co/palette/590d22-800f2f-a4133c-c9184a-ff4d6d-ff758f-ff8fa3-ffb3c1-ffccd5-fff0f3
+ */
+
+:root {
+    --md-primary-fg-color: #800F2F;
+    --md-primary-fg-color--light: #590D22;
+    --md-primary-fg-color--dark: #A4133C;
+    --md-primary-bg-color: hsla(0, 0%, 100%, 1);
+    --md-primary-bg-color--light: hsla(0, 0%, 100%, 0.7);
+    --md-accent-fg-color: #C9184A;
+    --md-accent-fg-color--transparent: #FFF0F3;
+    --md-accent-bg-color: hsla(0, 0%, 100%, 1);
+    --md-accent-bg-color--light: hsla(0, 0%, 100%, 0.7);
+}
+
+/* Typography */
+
+body {
+    -webkit-font-smoothing: auto;
+}
+
+.md-nav {
+    font-size: 0.9rem;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    color: var(--md-default-fg-color--dark);
+    font-weight: 600;
+}
+
+h2 h3,
+code {
+    font-weight: 400;
+}
+
+.md-typeset {
+    font-size: 0.85rem;
+}
+
+.md-typeset code {
+    font-size: 0.85em;
+}
+
+.md-typeset table:not([class]) {
+    font-size: 0.8rem;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+    font-size: 0.85rem;
+}
