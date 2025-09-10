@@ -453,6 +453,9 @@ name = "ggsci"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "matplotlib" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "numpy", version = "2.3.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "plotnine" },
 ]
 
@@ -469,7 +472,11 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "plotnine", specifier = ">=0.15.0" }]
+requires-dist = [
+    { name = "matplotlib", specifier = ">=3.10.6" },
+    { name = "numpy", specifier = ">=2.2.6" },
+    { name = "plotnine", specifier = ">=0.15.0" },
+]
 
 [package.metadata.requires-dev]
 dev = [
