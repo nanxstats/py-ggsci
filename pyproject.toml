@@ -6,6 +6,8 @@ authors = [
     { name = "Nan Xiao", email = "me@nanx.me" }
 ]
 dependencies = [
+    "matplotlib>=3.10.6",
+    "numpy>=2.2.6",
     "plotnine>=0.15.0",
 ]
 readme = "README.md"
