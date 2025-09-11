@@ -36,14 +36,14 @@ class scale_color_npg(scale_discrete):
 
     def __post_init__(self, palette, alpha):
         super().__post_init__()
-        self.palette = npg_pal(palette, alpha)
+        self.palette = pal_npg(palette, alpha)
 ```
 
 **Continuous scales**: Use functions that return `scale_*_gradientn`
 
 ```python
 def scale_color_gsea(palette="default", alpha=1.0, reverse=False, **kwargs):
-    colors = gsea_pal(palette, n=512, alpha=alpha, reverse=reverse)
+    colors = pal_gsea(palette, n=512, alpha=alpha, reverse=reverse)
     return scale_color_gradientn(colors=colors, **kwargs)
 ```
 
@@ -107,7 +107,7 @@ from ggsci import (
     scale_color_flatui,                     # Discrete FlatUI
     scale_color_gsea, scale_fill_gsea,      # Continuous diverging
     scale_color_bs5, scale_fill_bs5,        # Continuous sequential
-    npg_pal, flatui_pal, gsea_pal, bs5_pal  # Palette functions
+    pal_npg, pal_flatui, pal_gsea, pal_bs5  # Palette functions
 )
 ```
 

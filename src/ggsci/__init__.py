@@ -5,7 +5,7 @@ A Python implementation of the R ggsci package, providing color palettes
 inspired by scientific journals and sci-fi themes.
 """
 
-from .palettes import bs5_pal, flatui_pal, gsea_pal, npg_pal
+from .palettes import pal_bs5, pal_flatui, pal_gsea, pal_npg
 from .scales import (
     scale_color_bs5,
     scale_color_flatui,
@@ -36,8 +36,8 @@ __all__ = [
     "scale_color_bs5",
     "scale_fill_bs5",
     "scale_colour_bs5",
-    "npg_pal",
-    "flatui_pal",
-    "gsea_pal",
-    "bs5_pal",
+    "pal_npg",
+    "pal_flatui",
+    "pal_gsea",
+    "pal_bs5",
 ]
