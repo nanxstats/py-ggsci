@@ -7,7 +7,9 @@
 [![mkdocs](https://github.com/nanxstats/py-ggsci/actions/workflows/mkdocs.yml/badge.svg)](https://nanx.me/py-ggsci/)
 ![License](https://img.shields.io/pypi/l/ggsci)
 
-ggsci for Python provides color palettes for plotnine.
+ggsci for Python offers a collection of plotnine color palettes inspired by
+scientific journals, data visualization libraries, science fiction movies,
+and TV shows.
 
 ## Installation
 
