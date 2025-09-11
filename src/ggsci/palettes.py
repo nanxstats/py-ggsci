@@ -11,7 +11,7 @@ from .data import PALETTES
 from .utils import apply_alpha, interpolate_colors
 
 
-def npg_pal(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[str]]:
+def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[str]]:
     """
     NPG journal color palette
 
@@ -49,7 +49,7 @@ def npg_pal(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[st
     return palette_func
 
 
-def flatui_pal(
+def pal_flatui(
     palette: str = "default", alpha: float = 1.0
 ) -> Callable[[int], List[str]]:
     """
@@ -89,7 +89,7 @@ def flatui_pal(
     return palette_func
 
 
-def gsea_pal(
+def pal_gsea(
     palette: str = "default",
     n: int = 12,
     alpha: float = 1.0,
@@ -132,7 +132,7 @@ def gsea_pal(
     return colors
 
 
-def bs5_pal(
+def pal_bs5(
     palette: str = "blue",
     n: int = 10,
     alpha: float = 1.0,

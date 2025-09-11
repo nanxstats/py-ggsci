@@ -8,7 +8,7 @@ from typing import Literal
 from plotnine.scales import scale_color_gradientn, scale_fill_gradientn
 from plotnine.scales.scale_discrete import scale_discrete
 
-from .palettes import bs5_pal, flatui_pal, gsea_pal, npg_pal
+from .palettes import pal_bs5, pal_flatui, pal_gsea, pal_npg
 
 
 # NPG scales (discrete, no variation)
@@ -32,7 +32,7 @@ class scale_color_npg(scale_discrete):
 
     def __post_init__(self, palette, alpha):
         super().__post_init__()
-        self.palette = npg_pal(palette, alpha)
+        self.palette = pal_npg(palette, alpha)
 
 
 @dataclass
@@ -55,7 +55,7 @@ class scale_fill_npg(scale_discrete):
 
     def __post_init__(self, palette, alpha):
         super().__post_init__()
-        self.palette = npg_pal(palette, alpha)
+        self.palette = pal_npg(palette, alpha)
 
 
 # FlatUI scales (discrete with 3 variations)
@@ -79,7 +79,7 @@ class scale_color_flatui(scale_discrete):
 
     def __post_init__(self, palette, alpha):
         super().__post_init__()
-        self.palette = flatui_pal(palette, alpha)
+        self.palette = pal_flatui(palette, alpha)
 
 
 @dataclass
@@ -102,7 +102,7 @@ class scale_fill_flatui(scale_discrete):
 
     def __post_init__(self, palette, alpha):
         super().__post_init__()
-        self.palette = flatui_pal(palette, alpha)
+        self.palette = pal_flatui(palette, alpha)
 
 
 # GSEA scales (continuous diverging)
@@ -121,7 +121,7 @@ def scale_color_gsea(palette="default", alpha=1.0, reverse=False, **kwargs):
     **kwargs
         Additional arguments passed to plotnine.scale_color_gradientn.
     """
-    colors = gsea_pal(palette, n=512, alpha=alpha, reverse=reverse)
+    colors = pal_gsea(palette, n=512, alpha=alpha, reverse=reverse)
     return scale_color_gradientn(colors=colors, **kwargs)
 
 
@@ -140,7 +140,7 @@ def scale_fill_gsea(palette="default", alpha=1.0, reverse=False, **kwargs):
     **kwargs
         Additional arguments passed to plotnine.scale_fill_gradientn.
     """
-    colors = gsea_pal(palette, n=512, alpha=alpha, reverse=reverse)
+    colors = pal_gsea(palette, n=512, alpha=alpha, reverse=reverse)
     return scale_fill_gradientn(colors=colors, **kwargs)
 
 
@@ -161,7 +161,7 @@ def scale_color_bs5(palette="blue", alpha=1.0, reverse=False, **kwargs):
     **kwargs
         Additional arguments passed to plotnine.scale_color_gradientn.
     """
-    colors = bs5_pal(palette, n=512, alpha=alpha, reverse=reverse)
+    colors = pal_bs5(palette, n=512, alpha=alpha, reverse=reverse)
     return scale_color_gradientn(colors=colors, **kwargs)
 
 
@@ -181,7 +181,7 @@ def scale_fill_bs5(palette="blue", alpha=1.0, reverse=False, **kwargs):
     **kwargs
         Additional arguments passed to plotnine.scale_fill_gradientn.
     """
-    colors = bs5_pal(palette, n=512, alpha=alpha, reverse=reverse)
+    colors = pal_bs5(palette, n=512, alpha=alpha, reverse=reverse)
     return scale_fill_gradientn(colors=colors, **kwargs)
 
 
