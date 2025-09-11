@@ -6,7 +6,7 @@ with plotnine for creating publication-ready plots.
 """
 
 import numpy as np
-import pandas as pd
+import pandas as pd  # type: ignore[import-untyped]
 from plotnine import aes, geom_bar, geom_point, geom_tile, ggplot, labs, theme_minimal
 
 from ggsci import scale_color_npg, scale_fill_bs5, scale_fill_flatui, scale_fill_gsea
