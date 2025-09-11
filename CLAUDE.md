@@ -7,12 +7,12 @@ Python port of the R package ggsci providing color palettes for plotnine.
 ## Package structure
 
 ```
-src/ggsci/
-├── __init__.py     # Main exports
-├── data.py         # Color palette data (hex strings)
-├── palettes.py     # Palette generation functions
-├── scales.py       # Plotnine scale implementations
-└── utils.py        # Color utilities (alpha, interpolation)
+- src/ggsci/
+  - __init__.py     # Main exports
+  - data.py         # Color palette data (hex strings)
+  - palettes.py     # Palette generation functions
+  - scales.py       # Plotnine scale implementations
+  - utils.py        # Color utilities (alpha, interpolation)
 ```
 
 ## Key design decisions
@@ -109,3 +109,17 @@ from ggsci import (
 - **Performant**: No file parsing, direct data access
 - **Extensible**: Clear patterns for adding new scales
 - **Compatible**: Seamless plotnine integration
+
+## Typing & docstring conventions
+
+- Prefer generic ABCs for parameters: import from `collections.abc` (e.g., `Sequence[str]`, `Mapping[... ]`).
+- Use built-in generics (PEP 585): `list[str]`, `tuple[int, ...]`; for unions use `A | B | None` with `None` last.
+- Return types should be as general as reasonable (e.g., `Sequence[str]`), even if implementation returns a `list`.
+- Use `TypeAlias` for repeated callable signatures (e.g., `PaletteFunc = Callable[[int], Sequence[str]]`).
+- Discrete palette fns return a callable (`PaletteFunc`); continuous palette fns return `Sequence[str]` directly.
+- Discrete scales: dataclass with `InitVar` fields; annotate `__post_init__(palette: str, alpha: float) -> None`; set palette via `setattr(self, "palette", pal_...(...))` to avoid mypy method-assign issues.
+- Continuous scales: thin functions returning `scale_*_gradientn`; type `**kwargs: Any` and explicit return type (`scale_color_gradientn`/`scale_fill_gradientn`).
+- Docstrings use indentation-based style with sections: summary line, `Args`, `Returns`, `Raises`. Do not repeat types in the docstring (they are in the signature).
+- Do not edit `data.py` by hand; it is generated.
+- Keep British spelling aliases (`scale_colour_*`) in sync with `scale_color_*`.
+- Ensure `mypy .` passes before submitting changes.

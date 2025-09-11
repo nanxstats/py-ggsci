@@ -1,31 +1,32 @@
 """
-Palette functions for ggsci
+Palette generators for ggsci.
 
-This module provides palette generation functions that return colors
-based on the requested number and palette parameters.
+This module provides palette functions that either return a callable for
+discrete palettes or a sequence of colors for continuous palettes.
 """
 
-from typing import Callable, List
+from collections.abc import Callable, Sequence
+from typing import TypeAlias
 
 from .data import PALETTES
 from .utils import apply_alpha, interpolate_colors
 
+PaletteFunc: TypeAlias = Callable[[int], Sequence[str]]
 
-def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[str]]:
+
+def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> PaletteFunc:
     """
-    NPG journal color palette
+    NPG journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "nrc" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "nrc" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["npg"]:
         raise ValueError(f"Unknown NPG palette: {palette}")
@@ -35,7 +36,7 @@ def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[st
 
     colors = PALETTES["npg"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -49,23 +50,19 @@ def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> Callable[[int], List[st
     return palette_func
 
 
-def pal_aaas(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_aaas(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    AAAS journal color palette
+    AAAS journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["aaas"]:
         raise ValueError(f"Unknown AAAS palette: {palette}")
@@ -75,7 +72,7 @@ def pal_aaas(
 
     colors = PALETTES["aaas"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -89,23 +86,19 @@ def pal_aaas(
     return palette_func
 
 
-def pal_nejm(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_nejm(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    NEJM journal color palette
+    NEJM journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["nejm"]:
         raise ValueError(f"Unknown NEJM palette: {palette}")
@@ -115,7 +108,7 @@ def pal_nejm(
 
     colors = PALETTES["nejm"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -129,23 +122,19 @@ def pal_nejm(
     return palette_func
 
 
-def pal_lancet(
-    palette: str = "lanonc", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_lancet(palette: str = "lanonc", alpha: float = 1.0) -> PaletteFunc:
     """
-    Lancet journal color palette
+    Lancet journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "lanonc" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "lanonc" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["lancet"]:
         raise ValueError(f"Unknown Lancet palette: {palette}")
@@ -155,7 +144,7 @@ def pal_lancet(
 
     colors = PALETTES["lancet"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -169,23 +158,19 @@ def pal_lancet(
     return palette_func
 
 
-def pal_jama(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_jama(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    JAMA journal color palette
+    JAMA journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["jama"]:
         raise ValueError(f"Unknown JAMA palette: {palette}")
@@ -195,7 +180,7 @@ def pal_jama(
 
     colors = PALETTES["jama"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -209,21 +194,19 @@ def pal_jama(
     return palette_func
 
 
-def pal_bmj(palette: str = "default", alpha: float = 1.0) -> Callable[[int], List[str]]:
+def pal_bmj(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    BMJ journal color palette
+    BMJ journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["bmj"]:
         raise ValueError(f"Unknown BMJ palette: {palette}")
@@ -233,7 +216,7 @@ def pal_bmj(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
 
     colors = PALETTES["bmj"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -247,21 +230,19 @@ def pal_bmj(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
     return palette_func
 
 
-def pal_jco(palette: str = "default", alpha: float = 1.0) -> Callable[[int], List[str]]:
+def pal_jco(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    JCO journal color palette
+    JCO journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["jco"]:
         raise ValueError(f"Unknown JCO palette: {palette}")
@@ -271,7 +252,7 @@ def pal_jco(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
 
     colors = PALETTES["jco"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -285,23 +266,19 @@ def pal_jco(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
     return palette_func
 
 
-def pal_ucscgb(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_ucscgb(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    UCSC Genome Browser color palette
+    UCSC Genome Browser color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["ucscgb"]:
         raise ValueError(f"Unknown UCSCGB palette: {palette}")
@@ -311,7 +288,7 @@ def pal_ucscgb(
 
     colors = PALETTES["ucscgb"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -325,23 +302,19 @@ def pal_ucscgb(
     return palette_func
 
 
-def pal_d3(
-    palette: str = "category10", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_d3(palette: str = "category10", alpha: float = 1.0) -> PaletteFunc:
     """
-    D3.js color palette
+    D3.js color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "category10", "category20", "category20b", or "category20c".
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name: "category10", "category20", "category20b", or "category20c".
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["d3"]:
         raise ValueError(f"Unknown D3 palette: {palette}")
@@ -351,7 +324,7 @@ def pal_d3(
 
     colors = PALETTES["d3"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -365,23 +338,19 @@ def pal_d3(
     return palette_func
 
 
-def pal_observable(
-    palette: str = "observable10", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_observable(palette: str = "observable10", alpha: float = 1.0) -> PaletteFunc:
     """
-    Observable color palette
+    Observable color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "observable10" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "observable10" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["observable"]:
         raise ValueError(f"Unknown Observable palette: {palette}")
@@ -391,7 +360,7 @@ def pal_observable(
 
     colors = PALETTES["observable"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -405,23 +374,19 @@ def pal_observable(
     return palette_func
 
 
-def pal_locuszoom(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_locuszoom(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    LocusZoom color palette
+    LocusZoom color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["locuszoom"]:
         raise ValueError(f"Unknown LocusZoom palette: {palette}")
@@ -431,7 +396,7 @@ def pal_locuszoom(
 
     colors = PALETTES["locuszoom"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -445,21 +410,19 @@ def pal_locuszoom(
     return palette_func
 
 
-def pal_igv(palette: str = "default", alpha: float = 1.0) -> Callable[[int], List[str]]:
+def pal_igv(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    IGV color palette
+    IGV color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "default" or "alternating".
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name: "default" or "alternating".
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["igv"]:
         raise ValueError(f"Unknown IGV palette: {palette}")
@@ -469,7 +432,7 @@ def pal_igv(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
 
     colors = PALETTES["igv"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -483,23 +446,19 @@ def pal_igv(palette: str = "default", alpha: float = 1.0) -> Callable[[int], Lis
     return palette_func
 
 
-def pal_cosmic(
-    palette: str = "hallmarks_dark", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_cosmic(palette: str = "hallmarks_dark", alpha: float = 1.0) -> PaletteFunc:
     """
-    COSMIC color palette
+    COSMIC color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "hallmarks_dark", "hallmarks_light", or "signature_substitutions".
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name: "hallmarks_dark", "hallmarks_light", or "signature_substitutions".
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["cosmic"]:
         raise ValueError(f"Unknown COSMIC palette: {palette}")
@@ -509,7 +468,7 @@ def pal_cosmic(
 
     colors = PALETTES["cosmic"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -523,23 +482,19 @@ def pal_cosmic(
     return palette_func
 
 
-def pal_uchicago(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_uchicago(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    University of Chicago color palette
+    University of Chicago color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "default", "light", or "dark".
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name: "default", "light", or "dark".
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["uchicago"]:
         raise ValueError(f"Unknown UChicago palette: {palette}")
@@ -549,7 +504,7 @@ def pal_uchicago(
 
     colors = PALETTES["uchicago"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -563,23 +518,19 @@ def pal_uchicago(
     return palette_func
 
 
-def pal_startrek(
-    palette: str = "uniform", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_startrek(palette: str = "uniform", alpha: float = 1.0) -> PaletteFunc:
     """
-    Star Trek color palette
+    Star Trek color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "uniform" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "uniform" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["startrek"]:
         raise ValueError(f"Unknown Star Trek palette: {palette}")
@@ -589,7 +540,7 @@ def pal_startrek(
 
     colors = PALETTES["startrek"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -603,21 +554,19 @@ def pal_startrek(
     return palette_func
 
 
-def pal_tron(palette: str = "legacy", alpha: float = 1.0) -> Callable[[int], List[str]]:
+def pal_tron(palette: str = "legacy", alpha: float = 1.0) -> PaletteFunc:
     """
-    Tron Legacy color palette
+    Tron Legacy color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "legacy" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "legacy" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["tron"]:
         raise ValueError(f"Unknown Tron palette: {palette}")
@@ -627,7 +576,7 @@ def pal_tron(palette: str = "legacy", alpha: float = 1.0) -> Callable[[int], Lis
 
     colors = PALETTES["tron"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -641,23 +590,19 @@ def pal_tron(palette: str = "legacy", alpha: float = 1.0) -> Callable[[int], Lis
     return palette_func
 
 
-def pal_futurama(
-    palette: str = "planetexpress", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_futurama(palette: str = "planetexpress", alpha: float = 1.0) -> PaletteFunc:
     """
-    Futurama color palette
+    Futurama color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "planetexpress" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "planetexpress" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["futurama"]:
         raise ValueError(f"Unknown Futurama palette: {palette}")
@@ -667,7 +612,7 @@ def pal_futurama(
 
     colors = PALETTES["futurama"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -681,23 +626,19 @@ def pal_futurama(
     return palette_func
 
 
-def pal_rickandmorty(
-    palette: str = "schwifty", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_rickandmorty(palette: str = "schwifty", alpha: float = 1.0) -> PaletteFunc:
     """
-    Rick and Morty color palette
+    Rick and Morty color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "schwifty" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "schwifty" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["rickandmorty"]:
         raise ValueError(f"Unknown Rick and Morty palette: {palette}")
@@ -707,7 +648,7 @@ def pal_rickandmorty(
 
     colors = PALETTES["rickandmorty"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -721,23 +662,19 @@ def pal_rickandmorty(
     return palette_func
 
 
-def pal_simpsons(
-    palette: str = "springfield", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_simpsons(palette: str = "springfield", alpha: float = 1.0) -> PaletteFunc:
     """
-    The Simpsons color palette
+    The Simpsons color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "springfield" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "springfield" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["simpsons"]:
         raise ValueError(f"Unknown Simpsons palette: {palette}")
@@ -747,7 +684,7 @@ def pal_simpsons(
 
     colors = PALETTES["simpsons"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -761,23 +698,19 @@ def pal_simpsons(
     return palette_func
 
 
-def pal_flatui(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_flatui(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    Flat UI color palette
+    Flat UI color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "default", "flattastic", or "aussie".
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name: "default", "flattastic", or "aussie".
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["flatui"]:
         raise ValueError(f"Unknown Flat UI palette: {palette}")
@@ -787,7 +720,7 @@ def pal_flatui(
 
     colors = PALETTES["flatui"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -801,23 +734,19 @@ def pal_flatui(
     return palette_func
 
 
-def pal_frontiers(
-    palette: str = "default", alpha: float = 1.0
-) -> Callable[[int], List[str]]:
+def pal_frontiers(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
-    Frontiers journal color palette
+    Frontiers journal color palette.
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    alpha : float
-        Transparency level, between 0 and 1.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        alpha: Transparency level, between 0 and 1.
 
-    Returns
-    -------
-    Callable
-        A function that takes n (number of colors) and returns a list of colors.
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["frontiers"]:
         raise ValueError(f"Unknown Frontiers palette: {palette}")
@@ -827,7 +756,7 @@ def pal_frontiers(
 
     colors = PALETTES["frontiers"][palette]
 
-    def palette_func(n: int) -> List[str]:
+    def palette_func(n: int) -> Sequence[str]:
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
@@ -846,25 +775,21 @@ def pal_gsea(
     n: int = 12,
     alpha: float = 1.0,
     reverse: bool = False,
-) -> List[str]:
+) -> Sequence[str]:
     """
-    GSEA GenePattern color palette (continuous/diverging)
+    GSEA GenePattern color palette (continuous/diverging).
 
-    Parameters
-    ----------
-    palette : str
-        Palette name. Currently only "default" is available.
-    n : int
-        Number of colors to generate.
-    alpha : float
-        Transparency level, between 0 and 1.
-    reverse : bool
-        Whether to reverse the color order.
+    Args:
+        palette: Palette name. Currently only "default" is available.
+        n: Number of colors to generate.
+        alpha: Transparency level, between 0 and 1.
+        reverse: Whether to reverse the color order.
 
-    Returns
-    -------
-    List[str]
-        List of hex color codes.
+    Returns:
+        A sequence of hex color codes.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["gsea"]:
         raise ValueError(f"Unknown GSEA palette: {palette}")
@@ -889,26 +814,22 @@ def pal_bs5(
     n: int = 10,
     alpha: float = 1.0,
     reverse: bool = False,
-) -> List[str]:
+) -> Sequence[str]:
     """
-    Bootstrap 5 color palette (continuous/sequential)
+    Bootstrap 5 color palette (continuous/sequential).
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "blue", "indigo", "purple", "pink", "red",
-        "orange", "yellow", "green", "teal", "cyan", or "gray".
-    n : int
-        Number of colors to generate.
-    alpha : float
-        Transparency level, between 0 and 1.
-    reverse : bool
-        Whether to reverse the color order.
+    Args:
+        palette: Palette name: "blue", "indigo", "purple", "pink", "red",
+            "orange", "yellow", "green", "teal", "cyan", or "gray".
+        n: Number of colors to generate.
+        alpha: Transparency level, between 0 and 1.
+        reverse: Whether to reverse the color order.
 
-    Returns
-    -------
-    List[str]
-        List of hex color codes.
+    Returns:
+        A sequence of hex color codes.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["bs5"]:
         raise ValueError(f"Unknown BS5 palette: {palette}")
@@ -933,28 +854,24 @@ def pal_material(
     n: int = 10,
     alpha: float = 1.0,
     reverse: bool = False,
-) -> List[str]:
+) -> Sequence[str]:
     """
-    Material Design color palette (continuous/sequential)
+    Material Design color palette (continuous/sequential).
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "red", "pink", "purple", "deep-purple", "indigo",
-        "blue", "light-blue", "cyan", "teal", "green", "light-green",
-        "lime", "yellow", "amber", "orange", "deep-orange", "brown",
-        "grey", or "blue-grey".
-    n : int
-        Number of colors to generate.
-    alpha : float
-        Transparency level, between 0 and 1.
-    reverse : bool
-        Whether to reverse the color order.
+    Args:
+        palette: Palette name: "red", "pink", "purple", "deep-purple", "indigo",
+            "blue", "light-blue", "cyan", "teal", "green", "light-green",
+            "lime", "yellow", "amber", "orange", "deep-orange", "brown",
+            "grey", or "blue-grey".
+        n: Number of colors to generate.
+        alpha: Transparency level, between 0 and 1.
+        reverse: Whether to reverse the color order.
 
-    Returns
-    -------
-    List[str]
-        List of hex color codes.
+    Returns:
+        A sequence of hex color codes.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["material"]:
         raise ValueError(f"Unknown Material palette: {palette}")
@@ -979,28 +896,24 @@ def pal_tw3(
     n: int = 11,
     alpha: float = 1.0,
     reverse: bool = False,
-) -> List[str]:
+) -> Sequence[str]:
     """
-    Tailwind CSS 3 color palette (continuous/sequential)
+    Tailwind CSS 3 color palette (continuous/sequential).
 
-    Parameters
-    ----------
-    palette : str
-        Palette name: "slate", "gray", "zinc", "neutral", "stone",
-        "red", "orange", "amber", "yellow", "lime", "green", "emerald",
-        "teal", "cyan", "sky", "blue", "indigo", "violet", "purple",
-        "fuchsia", "pink", or "rose".
-    n : int
-        Number of colors to generate.
-    alpha : float
-        Transparency level, between 0 and 1.
-    reverse : bool
-        Whether to reverse the color order.
+    Args:
+        palette: Palette name: "slate", "gray", "zinc", "neutral", "stone",
+            "red", "orange", "amber", "yellow", "lime", "green", "emerald",
+            "teal", "cyan", "sky", "blue", "indigo", "violet", "purple",
+            "fuchsia", "pink", or "rose".
+        n: Number of colors to generate.
+        alpha: Transparency level, between 0 and 1.
+        reverse: Whether to reverse the color order.
 
-    Returns
-    -------
-    List[str]
-        List of hex color codes.
+    Returns:
+        A sequence of hex color codes.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
     """
     if palette not in PALETTES["tw3"]:
         raise ValueError(f"Unknown Tailwind CSS 3 palette: {palette}")

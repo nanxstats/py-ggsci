@@ -1,44 +1,58 @@
 """
-Utility functions for color palette manipulation
+Utility functions for color palette manipulation.
 """
 
-from typing import List, Tuple
+from collections.abc import Sequence
 
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap, to_hex, to_rgb
 
 
-def hex_to_rgb(hex_color: str) -> Tuple[int, int, int]:
-    """Convert hex color to RGB tuple (0-255 range)."""
+def hex_to_rgb(hex_color: str) -> tuple[int, int, int]:
+    """
+    Convert a hex color to an RGB tuple.
+
+    Args:
+        hex_color: Color in hex form (e.g., "#RRGGBB").
+
+    Returns:
+        A tuple of three integers in the 0 to 255 range.
+    """
     rgb = to_rgb(hex_color)
-    return tuple(int(c * 255) for c in rgb)
+    return (
+        int(rgb[0] * 255),
+        int(rgb[1] * 255),
+        int(rgb[2] * 255),
+    )
 
 
-def rgb_to_hex(rgb: Tuple[float, float, float]) -> str:
-    """Convert RGB tuple (0-1 range) to hex color."""
+def rgb_to_hex(rgb: tuple[float, float, float]) -> str:
+    """
+    Convert an RGB tuple to a hex color.
+
+    Args:
+        rgb: A tuple of three floats in the 0 to 1 range.
+
+    Returns:
+        A hex color string (e.g., "#RRGGBB").
+    """
     return to_hex(rgb)
 
 
-def apply_alpha(colors: List[str], alpha: float) -> List[str]:
+def apply_alpha(colors: Sequence[str], alpha: float) -> Sequence[str]:
     """
-    Apply alpha transparency to a list of colors.
+    Apply alpha transparency to colors.
 
-    Parameters
-    ----------
-    colors : List[str]
-        List of hex color codes.
-    alpha : float
-        Alpha value between 0 and 1.
+    Args:
+        colors: Sequence of hex color codes.
+        alpha: Alpha value between 0 and 1.
 
-    Returns
-    -------
-    List[str]
-        List of hex colors with alpha applied (as RGBA hex).
+    Returns:
+        Colors with alpha applied, as 8-digit RGBA hex strings.
     """
-    result = []
+    result: list[str] = []
     for color in colors:
         rgb = to_rgb(color)
-        # Convert to RGBA hex format
         rgba_hex = "#{:02x}{:02x}{:02x}{:02x}".format(
             int(rgb[0] * 255),
             int(rgb[1] * 255),
@@ -49,23 +63,16 @@ def apply_alpha(colors: List[str], alpha: float) -> List[str]:
     return result
 
 
-def interpolate_colors(colors: List[str], n: int) -> List[str]:
+def interpolate_colors(colors: Sequence[str], n: int) -> Sequence[str]:
     """
-    Interpolate between colors to generate n colors.
+    Interpolate between colors to generate a sequence of length n.
 
-    Uses spline interpolation in LAB color space for smooth gradients.
+    Args:
+        colors: Base colors to interpolate between.
+        n: Number of colors to generate.
 
-    Parameters
-    ----------
-    colors : List[str]
-        Base colors to interpolate between.
-    n : int
-        Number of colors to generate.
-
-    Returns
-    -------
-    List[str]
-        List of n interpolated hex colors.
+    Returns:
+        A list of n interpolated hex colors.
     """
     if n <= len(colors):
         # If requesting fewer colors than available, sample evenly
@@ -73,15 +80,15 @@ def interpolate_colors(colors: List[str], n: int) -> List[str]:
         return [colors[i] for i in indices]
 
     # Create a colormap from the base colors
-    cmap = LinearSegmentedColormap.from_list("custom", colors, N=n)
+    cmap = LinearSegmentedColormap.from_list("custom", list(colors), N=n)
 
     # Generate n evenly spaced colors
     positions = np.linspace(0, 1, n)
-    interpolated = []
+    interpolated: list[str] = []
 
     for pos in positions:
         rgba = cmap(pos)
-        # Convert to hex (ignoring alpha channel)
+        # Convert to hex (ignore alpha channel)
         hex_color = to_hex(rgba[:3])
         interpolated.append(hex_color)
 
