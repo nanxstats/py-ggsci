@@ -52,15 +52,6 @@ def scale_color_gsea(palette="default", alpha=1.0, reverse=False, **kwargs):
 - **Discrete**: Return callable `(n: int) -> List[str]`
 - **Continuous**: Return `List[str]` directly
 
-## Implemented scales
-
-| Scale | Type | Variants | Notes |
-|-------|------|----------|-------|
-| NPG | Discrete | nrc | Nature Publishing Group |
-| FlatUI | Discrete | default, flattastic, aussie | 3 variations |
-| GSEA | Continuous | default | Diverging heatmap colors |
-| BS5 | Continuous | 11 colors | Sequential Bootstrap 5 |
-
 ## Critical implementation details
 
 ### Plotnine imports

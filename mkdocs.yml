@@ -7,6 +7,34 @@ edit_uri: edit/main/docs/
 
 nav:
   - Home: index.md
+  - API reference:
+    - Discrete scales:
+      - NPG: reference/npg.md
+      - AAAS: reference/aaas.md
+      - NEJM: reference/nejm.md
+      - Lancet: reference/lancet.md
+      - JAMA: reference/jama.md
+      - BMJ: reference/bmj.md
+      - JCO: reference/jco.md
+      - UCSCGB: reference/ucscgb.md
+      - D3: reference/d3.md
+      - Observable: reference/observable.md
+      - LocusZoom: reference/locuszoom.md
+      - IGV: reference/igv.md
+      - COSMIC: reference/cosmic.md
+      - UChicago: reference/uchicago.md
+      - Star Trek: reference/startrek.md
+      - Tron Legacy: reference/tron.md
+      - Futurama: reference/futurama.md
+      - Rick and Morty: reference/rickandmorty.md
+      - The Simpsons: reference/simpsons.md
+      - Flat UI: reference/flatui.md
+      - Frontiers: reference/frontiers.md
+    - Continuous scales:
+      - GSEA: reference/gsea.md
+      - Bootstrap 5: reference/bs5.md
+      - Material Design: reference/material.md
+      - Tailwind CSS: reference/tw3.md
   - Changelog: changelog.md
 
 extra_css:
@@ -67,7 +95,6 @@ theme:
   - navigation.footer
   - navigation.indexes
   - navigation.sections
-  - navigation.expand
   - navigation.top
   - navigation.path
   - search.highlight
