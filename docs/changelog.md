@@ -1,5 +1,12 @@
 # Changelog
 
+## py-ggsci 0.4.0
+
+### Testing
+
+- Add a parametrized, introspection-driven test suite covering utilities,
+  palettes, and scales. Code coverage reaches 100% (#14).
+
 ## py-ggsci 0.3.0
 
 ### Improvements
