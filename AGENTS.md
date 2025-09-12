@@ -72,22 +72,15 @@ from plotnine.scales import scale_color_gradientn, scale_fill_gradientn
 scale_colour_npg = scale_color_npg  # etc.
 ```
 
-## Testing & demo
+## Testing
 
 - `tests/`: Unit tests using pytest
-- `examples/demo.py`: Visual demos with plot generation
 
 ## Commands for development
 
 ```bash
 # Run tests
-uv run python test.py
-
-# Generate demo plots
-uv run python examples/demo.py
-
-# Check structure
-find src/ -name "*.py"
+uv run pytest
 ```
 
 ## Import usage
