@@ -9,6 +9,17 @@ and TV shows. Palettes are exposed as plotnine scales:
 
 This article mirrors the original R package vignette using plotnine.
 
+```python
+import numpy as np
+import pandas as pd
+from plotnine import *
+from plotnine.data import diamonds, mtcars
+
+from ggsci import *
+
+LAST = None
+```
+
 ```python exec="on" session="default"
 # Imports shared by all chunks in this article
 import base64
@@ -39,7 +50,6 @@ from plotnine import (
     theme_dark,
     theme_void,
 )
-from plotnine.composition import plot_spacer
 from plotnine.data import diamonds, mtcars
 from plotnine.options import set_option
 
@@ -68,40 +78,6 @@ def render_png(
 
 # A shared handle for the last-computed plot/composition
 LAST = None
-
-
-# Placeholder panel to pad compositions to equal column counts
-def blank_panel():
-    # Build a grid matching p4's tile layout, but with white tiles (no fill mapping)
-    try:
-        df = x_melt[["Var1", "Var2"]].copy()
-    except NameError:
-        # Fallback to a 6x6 grid if x_melt is not yet defined
-        k = 6
-        df = pd.DataFrame(
-            [(i, j) for i in range(k) for j in range(k)], columns=["Var1", "Var2"]
-        )
-    return (
-        ggplot(df, aes("Var1", "Var2"))
-        + geom_tile(fill="white", color="black", size=0.3)
-        + scale_x_continuous(expand=(0, 0))
-        + scale_y_continuous(expand=(0, 0))
-        + theme_bw()
-        + theme(
-            legend_position="none",
-            plot_background=element_rect(fill="white"),
-            panel_background=element_rect(fill="white"),
-            axis_title_x=element_blank(),
-            axis_title_y=element_blank(),
-            axis_text_x=element_blank(),
-            axis_text_y=element_blank(),
-            axis_ticks=element_blank(),
-            axis_line=element_blank(),
-            panel_border=element_blank(),
-            panel_grid_major=element_blank(),
-            panel_grid_minor=element_blank(),
-        )
-    )
 ```
 
 ## Discrete color palettes
@@ -406,6 +382,39 @@ p4 = (
         panel_grid_minor=element_blank(),
     )
 )
+
+# Placeholder panel to pad compositions to equal column counts
+def blank_panel():
+    # Build a grid matching p4's tile layout, but with white tiles (no fill mapping)
+    try:
+        df = x_melt[["Var1", "Var2"]].copy()
+    except NameError:
+        # Fallback to a 6x6 grid if x_melt is not yet defined
+        k = 6
+        df = pd.DataFrame(
+            [(i, j) for i in range(k) for j in range(k)], columns=["Var1", "Var2"]
+        )
+    return (
+        ggplot(df, aes("Var1", "Var2"))
+        + geom_tile(fill="white", color="black", size=0.3)
+        + scale_x_continuous(expand=(0, 0))
+        + scale_y_continuous(expand=(0, 0))
+        + theme_bw()
+        + theme(
+            legend_position="none",
+            plot_background=element_rect(fill="white"),
+            panel_background=element_rect(fill="white"),
+            axis_title_x=element_blank(),
+            axis_title_y=element_blank(),
+            axis_text_x=element_blank(),
+            axis_text_y=element_blank(),
+            axis_ticks=element_blank(),
+            axis_line=element_blank(),
+            panel_border=element_blank(),
+            panel_grid_major=element_blank(),
+            panel_grid_minor=element_blank(),
+        )
+    )
 ```
 
 ### GSEA (diverging)
