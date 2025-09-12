@@ -30,4 +30,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material mkdocstrings-python markdown-exec[ansi] matplotlib plotnine
+
+      - name: Install dependencies
+        run: |
+          pip install -e '.[all]'
+
       - run: mkdocs gh-deploy --force
