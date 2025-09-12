@@ -29,5 +29,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material mkdocstrings-python markdown-exec[ansi] matplotlib
+      - run: pip install mkdocs-material mkdocstrings-python markdown-exec[ansi] matplotlib plotnine
       - run: mkdocs gh-deploy --force
