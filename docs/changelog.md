@@ -1,5 +1,20 @@
 # Changelog
 
+## py-ggsci 0.3.0
+
+### Improvements
+
+- Refine type annotations and docstrings to follow best practices (#9).
+
+### Documentation
+
+- Add a [Get Started article](https://nanx.me/py-ggsci/articles/get-started/)
+  mirroring the original R package vignette (#11).
+
+### CI/CD
+
+- Add GitHub Actions workflow for mypy type checks (#10).
+
 ## py-ggsci 0.2.0
 
 ### New features
