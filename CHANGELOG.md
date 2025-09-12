@@ -1,5 +1,12 @@
 # Changelog
 
+## py-ggsci 0.4.1
+
+### Documentation
+
+- Add an initial code block to the Get Started article showing the
+  essential imports required for the example plots (#17).
+
 ## py-ggsci 0.4.0
 
 ### Testing
