@@ -32,16 +32,8 @@ from plotnine import (
     aes,
     element_blank,
     element_rect,
-    element_text,
-    geom_bar,
-    geom_boxplot,
-    geom_histogram,
-    geom_point,
-    geom_smooth,
     geom_tile,
     ggplot,
-    labs,
-    position_dodge,
     scale_fill_identity,
     scale_x_continuous,
     scale_y_continuous,
@@ -82,24 +74,15 @@ LAST = None
 
 ## Discrete color palettes
 
-We will use a scatter plot with smoothed curves and a bar plot to demonstrate
-discrete palettes. The examples below use the `diamonds` dataset and apply
-each palette to `color` and `fill` scales respectively.
+We will use reusable helpers that construct a scatter plot with a smoothed
+curve and a side-by-side bar plot to demonstrate discrete palettes. The
+examples below use the `diamonds` dataset and apply each palette to `color`
+and `fill` scales respectively.
 
 ```python exec="on" source="above" session="default"
 # Base plots shared for discrete palette demos
-p1 = (
-    ggplot(diamonds.query("carat >= 2.2"), aes("table", "price", color="cut"))
-    + geom_point(alpha=0.7)
-    + geom_smooth(method="lm", alpha=0.05, size=1)
-    + theme_bw()
-)
-
-p2 = (
-    ggplot(diamonds, aes("color", fill="cut"))
-    + geom_bar(position=position_dodge())
-    + theme_bw()
-)
+p1 = example_scatterplot()
+p2 = example_barplot()
 ```
 
 ### NPG
