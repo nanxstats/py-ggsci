@@ -9,6 +9,7 @@ import pytest
 
 from ggsci import palettes as pl
 from ggsci.data import PALETTES
+from ggsci.data_iterm import ITERM_PALETTES, PALETTES_ITERM
 
 
 def _is_continuous_palette(func: Callable[..., object]) -> bool:
@@ -34,14 +35,32 @@ def _discrete_and_continuous() -> tuple[list[str], list[str]]:
 DISCRETE_NAMES, CONTINUOUS_NAMES = _discrete_and_continuous()
 
 
+def _iter_discrete_palette_cases(
+    name: str,
+) -> list[tuple[str, list[str], dict[str, str]]]:
+    if name == "iterm":
+        cases: list[tuple[str, list[str], dict[str, str]]] = []
+        for palette_key, variants in PALETTES_ITERM.items():
+            for variant, colors in variants.items():
+                cases.append((palette_key, list(colors), {"variant": variant}))
+        return cases
+
+    return [
+        (palette_key, list(colors), {})
+        for palette_key, colors in PALETTES[name].items()
+    ]
+
+
 @pytest.mark.parametrize("name", DISCRETE_NAMES)
 def test_discrete_palette_happy_path_and_alpha(name: str):
     func: Callable[..., Callable[[int], list[str]]] = getattr(pl, f"pal_{name}")
 
     # Validate each available sub-palette for this family
-    for palette_key, colors in PALETTES[name].items():
+    palette_iter = _iter_discrete_palette_cases(name)
+
+    for palette_key, colors, extra_kwargs in palette_iter:
         # Happy path
-        pal_fn = func(palette=palette_key, alpha=1.0)
+        pal_fn = func(palette=palette_key, alpha=1.0, **extra_kwargs)
         n = min(3, len(colors))
         out = pal_fn(n)
         assert isinstance(out, list) and len(out) == n
@@ -52,7 +71,7 @@ def test_discrete_palette_happy_path_and_alpha(name: str):
             pal_fn(len(colors) + 1)
 
         # Alpha applied in discrete palette function
-        pal_fn_a = func(palette=palette_key, alpha=0.6)
+        pal_fn_a = func(palette=palette_key, alpha=0.6, **extra_kwargs)
         out_a = pal_fn_a(1)
         assert len(out_a) == 1 and out_a[0].startswith("#") and len(out_a[0]) == 9
         assert out_a[0][-2:] == _alpha_hex(0.6)
@@ -64,6 +83,11 @@ def test_discrete_palette_errors(name: str):
 
     with pytest.raises(ValueError):
         func(palette="__unknown__", alpha=1.0)
+
+    if name == "iterm":
+        first_palette = ITERM_PALETTES[0]
+        with pytest.raises(ValueError):
+            func(palette=first_palette, variant="__unknown__")
 
     for bad_alpha in (0.0, -0.1, 1.0 + 1e-9):
         with pytest.raises(ValueError):

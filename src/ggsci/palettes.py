@@ -6,12 +6,15 @@ discrete palettes or a sequence of colors for continuous palettes.
 """
 
 from collections.abc import Callable, Sequence
-from typing import TypeAlias
+from typing import Final, TypeAlias
 
 from .data import PALETTES
+from .data_iterm import ITERM_PALETTES, PALETTES_ITERM
 from .utils import apply_alpha, interpolate_colors
 
 PaletteFunc: TypeAlias = Callable[[int], Sequence[str]]
+
+ITERM_VARIANTS: Final[tuple[str, ...]] = ("normal", "bright")
 
 
 def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> PaletteFunc:
@@ -436,6 +439,53 @@ def pal_atlassian(palette: str = "categorical8", alpha: float = 1.0) -> PaletteF
         if n > len(colors):
             raise ValueError(
                 f"Palette '{palette}' has only {len(colors)} colors, "
+                f"but {n} were requested"
+            )
+        selected = colors[:n]
+        if alpha < 1:
+            return apply_alpha(selected, alpha)
+        return selected
+
+    return palette_func
+
+
+def pal_iterm(
+    palette: str = "Rose Pine",
+    variant: str = "normal",
+    alpha: float = 1.0,
+) -> PaletteFunc:
+    """
+    iTerm color palette.
+
+    Args:
+        palette: Palette name. See `ITERM_PALETTES` for available options.
+        variant: Palette variant. Either "normal" or "bright".
+        alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Preview all iTerm palettes: <https://nanx.me/ggsci-iterm/>.
+
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name, variant, or alpha is invalid.
+    """
+    if palette not in ITERM_PALETTES:
+        raise ValueError(f"Unknown iTerm palette: {palette}")
+
+    if variant not in ITERM_VARIANTS:
+        raise ValueError(f"Unknown iTerm variant: {variant}")
+
+    if not 0 < alpha <= 1:
+        raise ValueError("alpha must be in (0, 1]")
+
+    colors = PALETTES_ITERM[palette][variant]
+
+    def palette_func(n: int) -> Sequence[str]:
+        if n > len(colors):
+            raise ValueError(
+                f"Palette '{palette}' ({variant}) has only {len(colors)} colors, "
                 f"but {n} were requested"
             )
         selected = colors[:n]

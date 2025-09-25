@@ -2,6 +2,7 @@
 Scientific journal and sci-fi themed color palettes for plotnine.
 """
 
+from .data_iterm import ITERM_PALETTES
 from .examples import example_barplot, example_scatterplot
 from .palettes import (
     pal_aaas,
@@ -15,6 +16,7 @@ from .palettes import (
     pal_futurama,
     pal_gsea,
     pal_igv,
+    pal_iterm,
     pal_jama,
     pal_jco,
     pal_lancet,
@@ -44,6 +46,7 @@ from .scales import (
     scale_color_futurama,
     scale_color_gsea,
     scale_color_igv,
+    scale_color_iterm,
     scale_color_jama,
     scale_color_jco,
     scale_color_lancet,
@@ -71,6 +74,7 @@ from .scales import (
     scale_colour_futurama,
     scale_colour_gsea,
     scale_colour_igv,
+    scale_colour_iterm,
     scale_colour_jama,
     scale_colour_jco,
     scale_colour_lancet,
@@ -98,6 +102,7 @@ from .scales import (
     scale_fill_futurama,
     scale_fill_gsea,
     scale_fill_igv,
+    scale_fill_iterm,
     scale_fill_jama,
     scale_fill_jco,
     scale_fill_lancet,
