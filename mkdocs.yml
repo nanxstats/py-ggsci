@@ -23,6 +23,7 @@ nav:
       - Observable: reference/observable.md
       - Primer: reference/primer.md
       - Atlassian: reference/atlassian.md
+      - iTerm: reference/iterm.md
       - LocusZoom: reference/locuszoom.md
       - IGV: reference/igv.md
       - COSMIC: reference/cosmic.md

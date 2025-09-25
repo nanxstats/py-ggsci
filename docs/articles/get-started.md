@@ -205,6 +205,16 @@ LAST = (p1 + scale_color_atlassian()) | (p2 + scale_fill_atlassian())
 print(render_png(LAST))
 ```
 
+### iTerm
+
+```python exec="on" session="default" source="above"
+LAST = (p1 + scale_color_iterm("Rose Pine")) | (p2 + scale_fill_iterm("Rose Pine"))
+```
+
+```python exec="on" session="default" html="true"
+print(render_png(LAST))
+```
+
 ### LocusZoom
 
 ```python exec="on" session="default" source="above"
