@@ -20,6 +20,7 @@ from .palettes import (
     pal_futurama,
     pal_gsea,
     pal_igv,
+    pal_iterm,
     pal_jama,
     pal_jco,
     pal_lancet,
@@ -517,6 +518,50 @@ class scale_fill_atlassian(scale_discrete):
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
         setattr(self, "palette", pal_atlassian(palette, alpha))
+
+
+@dataclass
+class scale_color_iterm(scale_discrete):
+    """
+    iTerm color scale.
+
+    Args:
+        palette: Palette name. See `ITERM_PALETTES` for available options.
+        variant: Palette variant. Either "normal" or "bright".
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["color"]
+
+    palette: InitVar[str] = "Rose Pine"
+    variant: InitVar[str] = "normal"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, variant: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_iterm(palette, variant, alpha))
+
+
+@dataclass
+class scale_fill_iterm(scale_discrete):
+    """
+    iTerm fill scale.
+
+    Args:
+        palette: Palette name. See `ITERM_PALETTES` for available options.
+        variant: Palette variant. Either "normal" or "bright".
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["fill"]
+
+    palette: InitVar[str] = "Rose Pine"
+    variant: InitVar[str] = "normal"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, variant: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_iterm(palette, variant, alpha))
 
 
 @dataclass
@@ -1120,6 +1165,9 @@ scale_colour_jco = scale_color_jco
 scale_colour_ucscgb = scale_color_ucscgb
 scale_colour_d3 = scale_color_d3
 scale_colour_observable = scale_color_observable
+scale_colour_primer = scale_color_primer
+scale_colour_atlassian = scale_color_atlassian
+scale_colour_iterm = scale_color_iterm
 scale_colour_locuszoom = scale_color_locuszoom
 scale_colour_igv = scale_color_igv
 scale_colour_cosmic = scale_color_cosmic
@@ -1130,8 +1178,6 @@ scale_colour_futurama = scale_color_futurama
 scale_colour_rickandmorty = scale_color_rickandmorty
 scale_colour_simpsons = scale_color_simpsons
 scale_colour_flatui = scale_color_flatui
-scale_colour_primer = scale_color_primer
-scale_colour_atlassian = scale_color_atlassian
 scale_colour_frontiers = scale_color_frontiers
 scale_colour_gsea = scale_color_gsea
 scale_colour_bs5 = scale_color_bs5
