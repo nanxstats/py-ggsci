@@ -462,6 +462,9 @@ def pal_iterm(
         variant: Palette variant. Either "normal" or "bright".
         alpha: Transparency level, between 0 and 1.
 
+    Details:
+        Preview all iTerm palettes: <https://nanx.me/ggsci-iterm/>.
+
     Returns:
         A callable that takes n and returns a color sequence.
 

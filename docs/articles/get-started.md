@@ -215,6 +215,10 @@ LAST = (p1 + scale_color_iterm("Rose Pine")) | (p2 + scale_fill_iterm("Rose Pine
 print(render_png(LAST))
 ```
 
+You can preview these color palettes in ggsci on a dedicated microsite:
+<https://nanx.me/ggsci-iterm/>. It renders example plots for all palettes
+on a single page for fast visual comparison.
+
 ### LocusZoom
 
 ```python exec="on" session="default" source="above"

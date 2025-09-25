@@ -529,6 +529,9 @@ class scale_color_iterm(scale_discrete):
         palette: Palette name. See `ITERM_PALETTES` for available options.
         variant: Palette variant. Either "normal" or "bright".
         alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Preview all iTerm palettes: <https://nanx.me/ggsci-iterm/>.
     """
 
     _aesthetics = ["color"]
@@ -551,6 +554,9 @@ class scale_fill_iterm(scale_discrete):
         palette: Palette name. See `ITERM_PALETTES` for available options.
         variant: Palette variant. Either "normal" or "bright".
         alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Preview all iTerm palettes: <https://nanx.me/ggsci-iterm/>.
     """
 
     _aesthetics = ["fill"]
