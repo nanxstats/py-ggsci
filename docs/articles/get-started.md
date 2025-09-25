@@ -185,6 +185,26 @@ LAST = (p1 + scale_color_observable()) | (p2 + scale_fill_observable())
 print(render_png(LAST))
 ```
 
+### Primer
+
+```python exec="on" session="default" source="above"
+LAST = (p1 + scale_color_primer()) | (p2 + scale_fill_primer())
+```
+
+```python exec="on" session="default" html="true"
+print(render_png(LAST))
+```
+
+### Atlassian
+
+```python exec="on" session="default" source="above"
+LAST = (p1 + scale_color_atlassian()) | (p2 + scale_fill_atlassian())
+```
+
+```python exec="on" session="default" html="true"
+print(render_png(LAST))
+```
+
 ### LocusZoom
 
 ```python exec="on" session="default" source="above"
