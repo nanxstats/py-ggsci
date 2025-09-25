@@ -10,6 +10,7 @@ from plotnine.scales.scale_discrete import scale_discrete
 
 from .palettes import (
     pal_aaas,
+    pal_atlassian,
     pal_bmj,
     pal_bs5,
     pal_cosmic,
@@ -27,6 +28,7 @@ from .palettes import (
     pal_nejm,
     pal_npg,
     pal_observable,
+    pal_primer,
     pal_rickandmorty,
     pal_simpsons,
     pal_startrek,
@@ -435,6 +437,86 @@ class scale_fill_observable(scale_discrete):
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
         setattr(self, "palette", pal_observable(palette, alpha))
+
+
+@dataclass
+class scale_color_primer(scale_discrete):
+    """
+    Primer design system color scale.
+
+    Args:
+        palette: Palette name. Currently only "mark17" is available.
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["color"]
+
+    palette: InitVar[str] = "mark17"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_primer(palette, alpha))
+
+
+@dataclass
+class scale_fill_primer(scale_discrete):
+    """
+    Primer design system fill scale.
+
+    Args:
+        palette: Palette name. Currently only "mark17" is available.
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["fill"]
+
+    palette: InitVar[str] = "mark17"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_primer(palette, alpha))
+
+
+@dataclass
+class scale_color_atlassian(scale_discrete):
+    """
+    Atlassian design system color scale.
+
+    Args:
+        palette: Palette name. Currently only "categorical8" is available.
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["color"]
+
+    palette: InitVar[str] = "categorical8"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_atlassian(palette, alpha))
+
+
+@dataclass
+class scale_fill_atlassian(scale_discrete):
+    """
+    Atlassian design system fill scale.
+
+    Args:
+        palette: Palette name. Currently only "categorical8" is available.
+        alpha: Transparency level, between 0 and 1.
+    """
+
+    _aesthetics = ["fill"]
+
+    palette: InitVar[str] = "categorical8"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        setattr(self, "palette", pal_atlassian(palette, alpha))
 
 
 @dataclass
@@ -1048,6 +1130,8 @@ scale_colour_futurama = scale_color_futurama
 scale_colour_rickandmorty = scale_color_rickandmorty
 scale_colour_simpsons = scale_color_simpsons
 scale_colour_flatui = scale_color_flatui
+scale_colour_primer = scale_color_primer
+scale_colour_atlassian = scale_color_atlassian
 scale_colour_frontiers = scale_color_frontiers
 scale_colour_gsea = scale_color_gsea
 scale_colour_bs5 = scale_color_bs5

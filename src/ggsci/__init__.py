@@ -5,6 +5,7 @@ Scientific journal and sci-fi themed color palettes for plotnine.
 from .examples import example_barplot, example_scatterplot
 from .palettes import (
     pal_aaas,
+    pal_atlassian,
     pal_bmj,
     pal_bs5,
     pal_cosmic,
@@ -22,6 +23,7 @@ from .palettes import (
     pal_nejm,
     pal_npg,
     pal_observable,
+    pal_primer,
     pal_rickandmorty,
     pal_simpsons,
     pal_startrek,
@@ -32,6 +34,7 @@ from .palettes import (
 )
 from .scales import (
     scale_color_aaas,
+    scale_color_atlassian,
     scale_color_bmj,
     scale_color_bs5,
     scale_color_cosmic,
@@ -49,6 +52,7 @@ from .scales import (
     scale_color_nejm,
     scale_color_npg,
     scale_color_observable,
+    scale_color_primer,
     scale_color_rickandmorty,
     scale_color_simpsons,
     scale_color_startrek,
@@ -57,6 +61,7 @@ from .scales import (
     scale_color_uchicago,
     scale_color_ucscgb,
     scale_colour_aaas,
+    scale_colour_atlassian,
     scale_colour_bmj,
     scale_colour_bs5,
     scale_colour_cosmic,
@@ -74,6 +79,7 @@ from .scales import (
     scale_colour_nejm,
     scale_colour_npg,
     scale_colour_observable,
+    scale_colour_primer,
     scale_colour_rickandmorty,
     scale_colour_simpsons,
     scale_colour_startrek,
@@ -82,6 +88,7 @@ from .scales import (
     scale_colour_uchicago,
     scale_colour_ucscgb,
     scale_fill_aaas,
+    scale_fill_atlassian,
     scale_fill_bmj,
     scale_fill_bs5,
     scale_fill_cosmic,
@@ -99,6 +106,7 @@ from .scales import (
     scale_fill_nejm,
     scale_fill_npg,
     scale_fill_observable,
+    scale_fill_primer,
     scale_fill_rickandmorty,
     scale_fill_simpsons,
     scale_fill_startrek,
