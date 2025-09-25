@@ -1,6 +1,6 @@
 [project]
 name = "ggsci"
-version = "0.4.1"
+version = "1.0.0"
 description = "Plotnine color palettes inspired by plots in scientific journals, data visualization libraries, science fiction movies, and TV shows"
 authors = [
     { name = "Nan Xiao", email = "me@nanx.me" }
