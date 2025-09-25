@@ -374,6 +374,78 @@ def pal_observable(palette: str = "observable10", alpha: float = 1.0) -> Palette
     return palette_func
 
 
+def pal_primer(palette: str = "mark17", alpha: float = 1.0) -> PaletteFunc:
+    """
+    Primer design system color palette.
+
+    Args:
+        palette: Palette name. Currently only "mark17" is available.
+        alpha: Transparency level, between 0 and 1.
+
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
+    """
+    if palette not in PALETTES["primer"]:
+        raise ValueError(f"Unknown Primer palette: {palette}")
+
+    if not 0 < alpha <= 1:
+        raise ValueError("alpha must be in (0, 1]")
+
+    colors = PALETTES["primer"][palette]
+
+    def palette_func(n: int) -> Sequence[str]:
+        if n > len(colors):
+            raise ValueError(
+                f"Palette '{palette}' has only {len(colors)} colors, "
+                f"but {n} were requested"
+            )
+        selected = colors[:n]
+        if alpha < 1:
+            return apply_alpha(selected, alpha)
+        return selected
+
+    return palette_func
+
+
+def pal_atlassian(palette: str = "categorical8", alpha: float = 1.0) -> PaletteFunc:
+    """
+    Atlassian design system color palette.
+
+    Args:
+        palette: Palette name. Currently only "categorical8" is available.
+        alpha: Transparency level, between 0 and 1.
+
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name is unknown or alpha is invalid.
+    """
+    if palette not in PALETTES["atlassian"]:
+        raise ValueError(f"Unknown Atlassian palette: {palette}")
+
+    if not 0 < alpha <= 1:
+        raise ValueError("alpha must be in (0, 1]")
+
+    colors = PALETTES["atlassian"][palette]
+
+    def palette_func(n: int) -> Sequence[str]:
+        if n > len(colors):
+            raise ValueError(
+                f"Palette '{palette}' has only {len(colors)} colors, "
+                f"but {n} were requested"
+            )
+        selected = colors[:n]
+        if alpha < 1:
+            return apply_alpha(selected, alpha)
+        return selected
+
+    return palette_func
+
+
 def pal_locuszoom(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
     """
     LocusZoom color palette.

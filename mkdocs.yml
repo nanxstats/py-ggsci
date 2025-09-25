@@ -21,6 +21,8 @@ nav:
       - UCSCGB: reference/ucscgb.md
       - D3: reference/d3.md
       - Observable: reference/observable.md
+      - Primer: reference/primer.md
+      - Atlassian: reference/atlassian.md
       - LocusZoom: reference/locuszoom.md
       - IGV: reference/igv.md
       - COSMIC: reference/cosmic.md
