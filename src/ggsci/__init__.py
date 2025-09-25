@@ -2,6 +2,7 @@
 Scientific journal and sci-fi themed color palettes for plotnine.
 """
 
+from .data_iterm import ITERM_PALETTES
 from .examples import example_barplot, example_scatterplot
 from .palettes import (
     pal_aaas,
