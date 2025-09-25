@@ -1,5 +1,27 @@
 # Changelog
 
+## py-ggsci 1.0.0
+
+### New features
+
+- Added `scale_color_primer()` and `scale_fill_primer()` for the
+  Primer (GitHub) design system palette (#29).
+- Added `scale_color_atlassian()` and `scale_fill_atlassian()` for the
+  Atlassian Design System palette (#29).
+- Added `scale_color_iterm()` and `scale_fill_iterm()`,
+  providing over 400 new iTerm color palettes (#30).
+
+### Improvements
+
+- Introduced `example_scatterplot()` and `example_barplot()` to simplify
+  documentation examples, reducing boilerplate and aligning the visual style
+  with the R ggsci package examples (#28).
+
+### Maintenance
+
+- Refactored the logo generation script to use ImageMagick, removing the
+  previous R and hexSticker dependency (#20).
+
 ## py-ggsci 0.4.1
 
 ### Documentation
