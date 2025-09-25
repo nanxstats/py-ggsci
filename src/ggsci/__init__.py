@@ -2,6 +2,7 @@
 Scientific journal and sci-fi themed color palettes for plotnine.
 """
 
+from .examples import example_barplot, example_scatterplot
 from .palettes import (
     pal_aaas,
     pal_bmj,
