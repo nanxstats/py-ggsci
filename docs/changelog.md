@@ -1,5 +1,13 @@
 # Changelog
 
+## py-ggsci 1.0.1
+
+### Maintenance
+
+- Added Python 3.14 support and set as default development environment (#33).
+- Updated GitHub Actions workflows to use the latest `checkout` and
+  `setup-python` versions (#33).
+
 ## py-ggsci 1.0.0
 
 ### New features
