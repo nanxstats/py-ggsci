@@ -57,7 +57,7 @@ class scale_color_npg(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_npg(palette, alpha))
+        self.palette = pal_npg(palette, alpha)
 
 
 @dataclass
@@ -77,7 +77,7 @@ class scale_fill_npg(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_npg(palette, alpha))
+        self.palette = pal_npg(palette, alpha)
 
 
 @dataclass
@@ -97,7 +97,7 @@ class scale_color_aaas(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_aaas(palette, alpha))
+        self.palette = pal_aaas(palette, alpha)
 
 
 @dataclass
@@ -117,7 +117,7 @@ class scale_fill_aaas(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_aaas(palette, alpha))
+        self.palette = pal_aaas(palette, alpha)
 
 
 @dataclass
@@ -137,7 +137,7 @@ class scale_color_nejm(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_nejm(palette, alpha))
+        self.palette = pal_nejm(palette, alpha)
 
 
 @dataclass
@@ -157,7 +157,7 @@ class scale_fill_nejm(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_nejm(palette, alpha))
+        self.palette = pal_nejm(palette, alpha)
 
 
 @dataclass
@@ -177,7 +177,7 @@ class scale_color_lancet(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_lancet(palette, alpha))
+        self.palette = pal_lancet(palette, alpha)
 
 
 @dataclass
@@ -197,7 +197,7 @@ class scale_fill_lancet(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_lancet(palette, alpha))
+        self.palette = pal_lancet(palette, alpha)
 
 
 @dataclass
@@ -217,7 +217,7 @@ class scale_color_jama(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_jama(palette, alpha))
+        self.palette = pal_jama(palette, alpha)
 
 
 @dataclass
@@ -237,7 +237,7 @@ class scale_fill_jama(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_jama(palette, alpha))
+        self.palette = pal_jama(palette, alpha)
 
 
 @dataclass
@@ -257,7 +257,7 @@ class scale_color_bmj(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_bmj(palette, alpha))
+        self.palette = pal_bmj(palette, alpha)
 
 
 @dataclass
@@ -277,7 +277,7 @@ class scale_fill_bmj(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_bmj(palette, alpha))
+        self.palette = pal_bmj(palette, alpha)
 
 
 @dataclass
@@ -297,7 +297,7 @@ class scale_color_jco(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_jco(palette, alpha))
+        self.palette = pal_jco(palette, alpha)
 
 
 @dataclass
@@ -317,7 +317,7 @@ class scale_fill_jco(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_jco(palette, alpha))
+        self.palette = pal_jco(palette, alpha)
 
 
 @dataclass
@@ -337,7 +337,7 @@ class scale_color_ucscgb(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_ucscgb(palette, alpha))
+        self.palette = pal_ucscgb(palette, alpha)
 
 
 @dataclass
@@ -357,7 +357,7 @@ class scale_fill_ucscgb(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_ucscgb(palette, alpha))
+        self.palette = pal_ucscgb(palette, alpha)
 
 
 @dataclass
@@ -377,7 +377,7 @@ class scale_color_d3(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_d3(palette, alpha))
+        self.palette = pal_d3(palette, alpha)
 
 
 @dataclass
@@ -397,7 +397,7 @@ class scale_fill_d3(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_d3(palette, alpha))
+        self.palette = pal_d3(palette, alpha)
 
 
 @dataclass
@@ -417,7 +417,7 @@ class scale_color_observable(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_observable(palette, alpha))
+        self.palette = pal_observable(palette, alpha)
 
 
 @dataclass
@@ -437,7 +437,7 @@ class scale_fill_observable(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_observable(palette, alpha))
+        self.palette = pal_observable(palette, alpha)
 
 
 @dataclass
@@ -457,7 +457,7 @@ class scale_color_primer(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_primer(palette, alpha))
+        self.palette = pal_primer(palette, alpha)
 
 
 @dataclass
@@ -477,7 +477,7 @@ class scale_fill_primer(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_primer(palette, alpha))
+        self.palette = pal_primer(palette, alpha)
 
 
 @dataclass
@@ -497,7 +497,7 @@ class scale_color_atlassian(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_atlassian(palette, alpha))
+        self.palette = pal_atlassian(palette, alpha)
 
 
 @dataclass
@@ -517,7 +517,7 @@ class scale_fill_atlassian(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_atlassian(palette, alpha))
+        self.palette = pal_atlassian(palette, alpha)
 
 
 @dataclass
@@ -542,7 +542,7 @@ class scale_color_iterm(scale_discrete):
 
     def __post_init__(self, palette: str, variant: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_iterm(palette, variant, alpha))
+        self.palette = pal_iterm(palette, variant, alpha)
 
 
 @dataclass
@@ -567,7 +567,7 @@ class scale_fill_iterm(scale_discrete):
 
     def __post_init__(self, palette: str, variant: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_iterm(palette, variant, alpha))
+        self.palette = pal_iterm(palette, variant, alpha)
 
 
 @dataclass
@@ -587,7 +587,7 @@ class scale_color_locuszoom(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_locuszoom(palette, alpha))
+        self.palette = pal_locuszoom(palette, alpha)
 
 
 @dataclass
@@ -607,7 +607,7 @@ class scale_fill_locuszoom(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_locuszoom(palette, alpha))
+        self.palette = pal_locuszoom(palette, alpha)
 
 
 @dataclass
@@ -627,7 +627,7 @@ class scale_color_igv(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_igv(palette, alpha))
+        self.palette = pal_igv(palette, alpha)
 
 
 @dataclass
@@ -647,7 +647,7 @@ class scale_fill_igv(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_igv(palette, alpha))
+        self.palette = pal_igv(palette, alpha)
 
 
 @dataclass
@@ -667,7 +667,7 @@ class scale_color_cosmic(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_cosmic(palette, alpha))
+        self.palette = pal_cosmic(palette, alpha)
 
 
 @dataclass
@@ -687,7 +687,7 @@ class scale_fill_cosmic(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_cosmic(palette, alpha))
+        self.palette = pal_cosmic(palette, alpha)
 
 
 @dataclass
@@ -707,7 +707,7 @@ class scale_color_uchicago(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_uchicago(palette, alpha))
+        self.palette = pal_uchicago(palette, alpha)
 
 
 @dataclass
@@ -727,7 +727,7 @@ class scale_fill_uchicago(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_uchicago(palette, alpha))
+        self.palette = pal_uchicago(palette, alpha)
 
 
 @dataclass
@@ -747,7 +747,7 @@ class scale_color_startrek(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_startrek(palette, alpha))
+        self.palette = pal_startrek(palette, alpha)
 
 
 @dataclass
@@ -767,7 +767,7 @@ class scale_fill_startrek(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_startrek(palette, alpha))
+        self.palette = pal_startrek(palette, alpha)
 
 
 @dataclass
@@ -787,7 +787,7 @@ class scale_color_tron(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_tron(palette, alpha))
+        self.palette = pal_tron(palette, alpha)
 
 
 @dataclass
@@ -807,7 +807,7 @@ class scale_fill_tron(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_tron(palette, alpha))
+        self.palette = pal_tron(palette, alpha)
 
 
 @dataclass
@@ -827,7 +827,7 @@ class scale_color_futurama(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_futurama(palette, alpha))
+        self.palette = pal_futurama(palette, alpha)
 
 
 @dataclass
@@ -847,7 +847,7 @@ class scale_fill_futurama(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_futurama(palette, alpha))
+        self.palette = pal_futurama(palette, alpha)
 
 
 @dataclass
@@ -867,7 +867,7 @@ class scale_color_rickandmorty(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_rickandmorty(palette, alpha))
+        self.palette = pal_rickandmorty(palette, alpha)
 
 
 @dataclass
@@ -887,7 +887,7 @@ class scale_fill_rickandmorty(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_rickandmorty(palette, alpha))
+        self.palette = pal_rickandmorty(palette, alpha)
 
 
 @dataclass
@@ -907,7 +907,7 @@ class scale_color_simpsons(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_simpsons(palette, alpha))
+        self.palette = pal_simpsons(palette, alpha)
 
 
 @dataclass
@@ -927,7 +927,7 @@ class scale_fill_simpsons(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_simpsons(palette, alpha))
+        self.palette = pal_simpsons(palette, alpha)
 
 
 @dataclass
@@ -947,7 +947,7 @@ class scale_color_flatui(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_flatui(palette, alpha))
+        self.palette = pal_flatui(palette, alpha)
 
 
 @dataclass
@@ -967,7 +967,7 @@ class scale_fill_flatui(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_flatui(palette, alpha))
+        self.palette = pal_flatui(palette, alpha)
 
 
 @dataclass
@@ -987,7 +987,7 @@ class scale_color_frontiers(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_frontiers(palette, alpha))
+        self.palette = pal_frontiers(palette, alpha)
 
 
 @dataclass
@@ -1007,7 +1007,7 @@ class scale_fill_frontiers(scale_discrete):
 
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
-        setattr(self, "palette", pal_frontiers(palette, alpha))
+        self.palette = pal_frontiers(palette, alpha)
 
 
 def scale_color_gsea(

@@ -5,7 +5,6 @@ Verifies whether all text files in the current directory contain only ASCII char
 
 import os
 import sys
-from typing import FrozenSet, List, Tuple
 
 
 def is_text_file(path: str, n: int | None = None) -> bool:
@@ -22,8 +21,8 @@ def is_text_file(path: str, n: int | None = None) -> bool:
     Returns:
         True if the file is text, False if binary.
     """
-    ALLOW: FrozenSet[int] = frozenset([9, 10, 13] + list(range(32, 256)))
-    BLOCK: FrozenSet[int] = frozenset(list(range(0, 7)) + list(range(14, 32)))
+    ALLOW: frozenset[int] = frozenset([9, 10, 13] + list(range(32, 256)))
+    BLOCK: frozenset[int] = frozenset(list(range(0, 7)) + list(range(14, 32)))
 
     with open(path, "rb") as file:
         bytecode = bytes(file.read(n or os.path.getsize(path)))
@@ -37,7 +36,7 @@ def is_text_file(path: str, n: int | None = None) -> bool:
     return cond1 and cond2
 
 
-def find_non_ascii_lines(filepath: str) -> List[Tuple[int, str, List[int]]]:
+def find_non_ascii_lines(filepath: str) -> list[tuple[int, str, list[int]]]:
     """
     Find lines containing non-ASCII characters in a text file.
 
@@ -51,7 +50,7 @@ def find_non_ascii_lines(filepath: str) -> List[Tuple[int, str, List[int]]]:
     non_ascii_lines = []
 
     try:
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             for line_num, line in enumerate(f, 1):
                 non_ascii_positions = []
                 for pos, char in enumerate(line):
@@ -69,7 +68,7 @@ def find_non_ascii_lines(filepath: str) -> List[Tuple[int, str, List[int]]]:
     return non_ascii_lines
 
 
-def highlight_non_ascii(line: str, positions: List[int]) -> str:
+def highlight_non_ascii(line: str, positions: list[int]) -> str:
     """
     Highlight non-ASCII characters in a line.
 
