@@ -53,7 +53,11 @@ def apply_alpha(colors: Sequence[str], alpha: float) -> Sequence[str]:
     result: list[str] = []
     for color in colors:
         rgb = to_rgb(color)
-        rgba_hex = f"#{int(rgb[0] * 255):02x}{int(rgb[1] * 255):02x}{int(rgb[2] * 255):02x}{int(alpha * 255):02x}"
+        r = int(rgb[0] * 255)
+        g = int(rgb[1] * 255)
+        b = int(rgb[2] * 255)
+        a = int(alpha * 255)
+        rgba_hex = f"#{r:02x}{g:02x}{b:02x}{a:02x}"
         result.append(rgba_hex)
     return result
 

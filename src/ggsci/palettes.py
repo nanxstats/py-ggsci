@@ -310,7 +310,8 @@ def pal_d3(palette: str = "category10", alpha: float = 1.0) -> PaletteFunc:
     D3.js color palette.
 
     Args:
-        palette: Palette name: "category10", "category20", "category20b", or "category20c".
+        palette: Palette name: "category10", "category20", "category20b",
+            or "category20c".
         alpha: Transparency level, between 0 and 1.
 
     Returns:
@@ -573,7 +574,8 @@ def pal_cosmic(palette: str = "hallmarks_dark", alpha: float = 1.0) -> PaletteFu
     COSMIC color palette.
 
     Args:
-        palette: Palette name: "hallmarks_dark", "hallmarks_light", or "signature_substitutions".
+        palette: Palette name: "hallmarks_dark", "hallmarks_light",
+            or "signature_substitutions".
         alpha: Transparency level, between 0 and 1.
 
     Returns:

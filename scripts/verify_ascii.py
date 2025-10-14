@@ -174,10 +174,7 @@ def scan_directory(root_dir: str) -> None:
 
 def main():
     # Use current directory if no argument provided
-    if len(sys.argv) > 1:
-        root_dir = sys.argv[1]
-    else:
-        root_dir = os.getcwd()
+    root_dir = sys.argv[1] if len(sys.argv) > 1 else os.getcwd()
 
     if not os.path.isdir(root_dir):
         print(f"Error: {root_dir} is not a directory")
