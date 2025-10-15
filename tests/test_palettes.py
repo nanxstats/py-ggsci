@@ -99,7 +99,7 @@ def test_continuous_palette_happy_path_reverse_alpha(name: str):
     func: Callable[..., list[str]] = getattr(pl, f"pal_{name}")
 
     # Exercise all palettes for the family (kept small n for speed)
-    for palette_key in PALETTES[name].keys():
+    for palette_key in PALETTES[name]:
         # Forward
         out = func(palette=palette_key, n=7, alpha=1.0, reverse=False)
         assert isinstance(out, list) and len(out) == 7
