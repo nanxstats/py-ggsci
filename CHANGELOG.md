@@ -1,5 +1,15 @@
 # Changelog
 
+## py-ggsci 1.0.2
+
+### Linting
+
+- Added ruff linter configuration to `pyproject.toml` with popular rule sets
+  including pycodestyle, Pyflakes, pyupgrade, flake8-bugbear, flake8-simplify,
+  and isort (#36).
+- Fixed `ruff check` linting issues including UP006, UP015, UP032, B010,
+  SIM108, SIM118, F401, and E501 (#36).
+
 ## py-ggsci 1.0.1
 
 ### Maintenance
