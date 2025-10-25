@@ -1,5 +1,19 @@
 # Changelog
 
+## py-ggsci 1.1.0
+
+### Improvements
+
+- Synchronized iTerm color palettes with upstream (#39).
+
+  This update added 8 new palettes to `ITERM_PALETTES`:
+  Hot Dog Stand variations, Matte Black, Poimandres variations,
+  and Selenized Black. These palettes are now usable by `pal_iterm()`,
+  `scale_color_iterm()`, and `scale_fill_iterm()`.
+
+  Additionally, the color values for 40+ existing iTerm palettes have been
+  updated to match the latest upstream color specifications.
+
 ## py-ggsci 1.0.2
 
 ### Linting
