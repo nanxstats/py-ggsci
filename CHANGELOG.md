@@ -1,5 +1,13 @@
 # Changelog
 
+## py-ggsci 1.1.1
+
+### Maintenance
+
+- Added GitHub Actions workflow to run `ruff check` for code linting (#43).
+- Updated GitHub Actions workflows to use `actions/checkout@v6` (#43).
+- Updated badges in `README.md` (#43).
+
 ## py-ggsci 1.1.0
 
 ### Improvements
