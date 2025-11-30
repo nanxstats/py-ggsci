@@ -2,8 +2,9 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/ggsci)](https://pypi.org/project/ggsci/)
 ![Python versions](https://img.shields.io/pypi/pyversions/ggsci)
-[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
-[![CI Tests](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml)
+[![CI tests](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml)
+[![Mypy check](https://github.com/nanxstats/py-ggsci/actions/workflows/mypy.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/mypy.yml)
+[![Ruff check](https://github.com/nanxstats/py-ggsci/actions/workflows/ruff-check.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/ruff-check.yml)
 [![mkdocs](https://github.com/nanxstats/py-ggsci/actions/workflows/mkdocs.yml/badge.svg)](https://nanx.me/py-ggsci/)
 ![License](https://img.shields.io/pypi/l/ggsci)
 
