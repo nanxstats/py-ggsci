@@ -1,5 +1,16 @@
 # Changelog
 
+## py-ggsci 1.2.0
+
+### Improvements
+
+- Synchronized iTerm color palettes with upstream (#47).
+
+  This update added 8 new palettes to `ITERM_PALETTES`:
+  branch, No Clown Fiesta variations, novmbr, One Dark Two, owl, traffic,
+  and urban. These palettes are now usable by `pal_iterm()`,
+  `scale_color_iterm()`, and `scale_fill_iterm()`.
+
 ## py-ggsci 1.1.1
 
 ### Maintenance
