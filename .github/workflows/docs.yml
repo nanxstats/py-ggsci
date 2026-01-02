@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: 3.x
-      - run: pip install zensical mkdocstrings-python markdown-exec[ansi]
+      - run: pip install zensical mkdocstrings-python markdown-exec[ansi] matplotlib
       - run: zensical build --clean
       - uses: actions/upload-pages-artifact@v4
         with:
