@@ -1,5 +1,16 @@
 # Changelog
 
+## py-ggsci 1.2.1
+
+### Documentation
+
+- Migrated documentation site to use Zensical (#49, #52).
+
+### Maintenance
+
+- Added exclusion rules to the hatchling build configuration to reduce the
+  file size of built source distributions and wheels (#53).
+
 ## py-ggsci 1.2.0
 
 ### Improvements
