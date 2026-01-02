@@ -118,3 +118,11 @@ paths = ["src"]
 inherited_members = true
 show_root_heading = true
 show_source = false
+
+# ----------------------------------------------------------------------------
+# Section for configuring markdown-exec plugin
+# ----------------------------------------------------------------------------
+[project.markdown_extensions.pymdownx.superfences]
+custom_fences = [
+    { name = "python", class = "python", validator = "markdown_exec.validator", format = "markdown_exec.formatter" },
+]
