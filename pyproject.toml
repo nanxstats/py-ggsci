@@ -2,14 +2,8 @@
 name = "ggsci"
 version = "1.2.0"
 description = "Plotnine color palettes inspired by plots in scientific journals, data visualization libraries, science fiction movies, and TV shows"
-authors = [
-    { name = "Nan Xiao", email = "me@nanx.me" }
-]
-dependencies = [
-    "matplotlib>=3.8.0",
-    "numpy>=1.23.5",
-    "plotnine>=0.14.0",
-]
+authors = [{ name = "Nan Xiao", email = "me@nanx.me" }]
+dependencies = ["matplotlib>=3.8.0", "numpy>=1.23.5", "plotnine>=0.14.0"]
 readme = "README.md"
 
 classifiers = [
@@ -50,13 +44,12 @@ build-backend = "hatchling.build"
 dev = [
     "isort>=6.0.1",
     "markdown-exec[ansi]>=1.11.0",
-    "mkdocs>=1.6.1",
-    "mkdocs-material>=9.6.19",
     "mkdocstrings-python>=1.18.2",
     "mypy>=1.17.1",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
     "ruff>=0.13.0",
+    "zensical>=0.0.15",
 ]
 
 [tool.ruff.lint]

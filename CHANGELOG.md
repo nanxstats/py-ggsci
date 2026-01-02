@@ -116,7 +116,7 @@
 
 ### Documentation
 
-- Add an API reference page for each palette to the MkDocs site (#6).
+- Add an API reference page for each palette to the documentation site (#6).
 
 ### Infrastructure
 

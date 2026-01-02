@@ -5,7 +5,7 @@
 [![CI tests](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/ci-tests.yml)
 [![Mypy check](https://github.com/nanxstats/py-ggsci/actions/workflows/mypy.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/mypy.yml)
 [![Ruff check](https://github.com/nanxstats/py-ggsci/actions/workflows/ruff-check.yml/badge.svg)](https://github.com/nanxstats/py-ggsci/actions/workflows/ruff-check.yml)
-[![mkdocs](https://github.com/nanxstats/py-ggsci/actions/workflows/mkdocs.yml/badge.svg)](https://nanx.me/py-ggsci/)
+[![Documentation](https://github.com/nanxstats/py-ggsci/actions/workflows/docs.yml/badge.svg)](https://nanx.me/py-ggsci/)
 ![License](https://img.shields.io/pypi/l/ggsci)
 
 ggsci for Python offers a collection of plotnine color palettes inspired by
