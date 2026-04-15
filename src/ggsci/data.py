@@ -5,7 +5,9 @@
 Color palettes data
 """
 
-PALETTES = {
+from typing import Any
+
+PALETTES: dict[str, dict[str, Any]] = {
     "npg": {
         "nrc": [
             "#E64B35",
@@ -206,6 +208,25 @@ PALETTES = {
             "#DADAEB",
             "#D9D9D9",
         ],
+    },
+    "gephi": {
+        "default": [0, 360, 0, 3, 0, 1.5],
+        "fancy_light": [0, 360, 0.4, 1.2, 1, 1.5],
+        "fancy_dark": [0, 360, 0.2, 1.2, 0.1, 0.6],
+        "shades": [0, 240, 0, 0.4, 0, 1.5],
+        "tarnish": [0, 360, 0, 0.4, 0.4, 1.1],
+        "pastel": [0, 360, 0, 0.9, 1, 1.5],
+        "pimp": [0, 360, 0.9, 3, 0.4, 1],
+        "intense": [0, 360, 0.6, 3, 0.2, 1.1],
+        "fluo": [0, 300, 1, 3, 1.1, 1.5],
+        "red_roses": [330, 20, 0.3, 3, 0.5, 1.5],
+        "ochre_sand": [20, 60, 0.3, 1.6, 0.5, 1.5],
+        "yellow_lime": [60, 90, 0.3, 3, 0.5, 1.5],
+        "green_mint": [90, 150, 0.3, 3, 0.5, 1.5],
+        "ice_cube": [150, 200, 0, 3, 0.5, 1.5],
+        "blue_ocean": [220, 260, 0.2, 2.5, 0, 0.8],
+        "indigo_night": [260, 290, 1.2, 3, 0.5, 1.5],
+        "purple_wine": [290, 330, 0, 3, 0, 0.6],
     },
     "observable": {
         "observable10": [
