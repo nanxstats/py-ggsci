@@ -187,20 +187,12 @@ output, call `np.random.seed()` immediately before palette evaluation.
 For plotnine scales, that means setting the seed before drawing the plot.
 
 ```python exec="on" session="default" source="above"
-LAST = (p1 + scale_color_gephi("default")) | (p2 + scale_fill_gephi("fancy_light"))
+LAST = (p1 + scale_color_gephi("default")) | (p2 + scale_fill_gephi("default"))
 ```
 
 ```python exec="on" session="default" html="true" source="above"
 np.random.seed(42)
 print(render_png(LAST))
-```
-
-```python exec="on" session="default" source="above"
-np.random.seed(42)
-gephi_a = pal_gephi("default")(10)
-np.random.seed(42)
-gephi_b = pal_gephi("default")(10)
-gephi_a == gephi_b
 ```
 
 ### Observable 10
