@@ -7,7 +7,8 @@ header <- c(
   "\"\"\"",
   "Color palettes data",
   "\"\"\"\n",
-  "PALETTES = "
+  "from typing import Any\n",
+  "PALETTES: dict[str, dict[str, Any]] = "
 )
 body <- jsonlite::toJSON(ggsci_db)
 txt <- paste0(paste0(header, collapse = "\n"), body)
