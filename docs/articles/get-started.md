@@ -175,6 +175,34 @@ LAST = (p1 + scale_color_d3("category10")) | (p2 + scale_fill_d3("category10"))
 print(render_png(LAST))
 ```
 
+### Gephi
+
+The Gephi palette adapts the generative categorical palette engine from
+[Gephi](https://gephi.org/) and can create visually distinct colors for an
+arbitrary number of categories. Available presets are listed in
+`GEPHI_PALETTES`.
+
+The palette uses NumPy's global random state directly. For reproducible
+output, call `np.random.seed()` immediately before palette evaluation.
+For plotnine scales, that means setting the seed before drawing the plot.
+
+```python exec="on" session="default" source="above"
+LAST = (p1 + scale_color_gephi("default")) | (p2 + scale_fill_gephi("fancy_light"))
+```
+
+```python exec="on" session="default" html="true" source="above"
+np.random.seed(42)
+print(render_png(LAST))
+```
+
+```python exec="on" session="default" source="above"
+np.random.seed(42)
+gephi_a = pal_gephi("default")(10)
+np.random.seed(42)
+gephi_b = pal_gephi("default")(10)
+gephi_a == gephi_b
+```
+
 ### Observable 10
 
 ```python exec="on" session="default" source="above"

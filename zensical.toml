@@ -26,6 +26,7 @@ nav = [
             { "JCO" = "reference/jco.md" },
             { "UCSCGB" = "reference/ucscgb.md" },
             { "D3" = "reference/d3.md" },
+            { "Gephi" = "reference/gephi.md" },
             { "Observable" = "reference/observable.md" },
             { "Primer" = "reference/primer.md" },
             { "Atlassian" = "reference/atlassian.md" },
