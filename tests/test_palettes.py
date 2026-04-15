@@ -101,7 +101,7 @@ def test_discrete_palette_errors(name: str):
             func(alpha=bad_alpha)
 
 
-def test_gephi_palette_deterministic_with_seed():
+def test_gephi_palette_deterministic_with_seed(preserve_numpy_random_state):
     np.random.seed(42)
     out_1 = pl.pal_gephi("default")(10)
 

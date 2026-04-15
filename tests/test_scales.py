@@ -84,7 +84,7 @@ def test_british_aliases_identity():
         assert getattr(sc, uk) is getattr(sc, us)
 
 
-def test_gephi_scale_palette_deterministic_with_seed():
+def test_gephi_scale_palette_deterministic_with_seed(preserve_numpy_random_state):
     np.random.seed(42)
     first = sc.scale_color_gephi().palette(8)
 
