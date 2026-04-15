@@ -5,6 +5,7 @@ Scientific journal and sci-fi themed color palettes for plotnine.
 from .data_iterm import ITERM_PALETTES
 from .examples import example_barplot, example_scatterplot
 from .palettes import (
+    GEPHI_PALETTES,
     pal_aaas,
     pal_atlassian,
     pal_bmj,
@@ -14,6 +15,7 @@ from .palettes import (
     pal_flatui,
     pal_frontiers,
     pal_futurama,
+    pal_gephi,
     pal_gsea,
     pal_igv,
     pal_iterm,
@@ -44,6 +46,7 @@ from .scales import (
     scale_color_flatui,
     scale_color_frontiers,
     scale_color_futurama,
+    scale_color_gephi,
     scale_color_gsea,
     scale_color_igv,
     scale_color_iterm,
@@ -72,6 +75,7 @@ from .scales import (
     scale_colour_flatui,
     scale_colour_frontiers,
     scale_colour_futurama,
+    scale_colour_gephi,
     scale_colour_gsea,
     scale_colour_igv,
     scale_colour_iterm,
@@ -100,6 +104,7 @@ from .scales import (
     scale_fill_flatui,
     scale_fill_frontiers,
     scale_fill_futurama,
+    scale_fill_gephi,
     scale_fill_gsea,
     scale_fill_igv,
     scale_fill_iterm,
@@ -122,6 +127,7 @@ from .scales import (
 )
 
 __all__ = [
+    "GEPHI_PALETTES",
     "ITERM_PALETTES",
     "example_barplot",
     "example_scatterplot",
@@ -134,6 +140,7 @@ __all__ = [
     "pal_flatui",
     "pal_frontiers",
     "pal_futurama",
+    "pal_gephi",
     "pal_gsea",
     "pal_igv",
     "pal_iterm",
@@ -162,6 +169,7 @@ __all__ = [
     "scale_color_flatui",
     "scale_color_frontiers",
     "scale_color_futurama",
+    "scale_color_gephi",
     "scale_color_gsea",
     "scale_color_igv",
     "scale_color_iterm",
@@ -190,6 +198,7 @@ __all__ = [
     "scale_colour_flatui",
     "scale_colour_frontiers",
     "scale_colour_futurama",
+    "scale_colour_gephi",
     "scale_colour_gsea",
     "scale_colour_igv",
     "scale_colour_iterm",
@@ -218,6 +227,7 @@ __all__ = [
     "scale_fill_flatui",
     "scale_fill_frontiers",
     "scale_fill_futurama",
+    "scale_fill_gephi",
     "scale_fill_gsea",
     "scale_fill_igv",
     "scale_fill_iterm",

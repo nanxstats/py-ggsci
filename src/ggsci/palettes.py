@@ -5,8 +5,12 @@ This module provides palette functions that either return a callable for
 discrete palettes or a sequence of colors for continuous palettes.
 """
 
+import math
 from collections.abc import Callable, Sequence
+from functools import cache
 from typing import Final, TypeAlias
+
+import numpy as np
 
 from .data import PALETTES
 from .data_iterm import ITERM_PALETTES, PALETTES_ITERM
@@ -15,6 +19,25 @@ from .utils import apply_alpha, interpolate_colors
 PaletteFunc: TypeAlias = Callable[[int], Sequence[str]]
 
 ITERM_VARIANTS: Final[tuple[str, ...]] = ("normal", "bright")
+GephiFilter: TypeAlias = tuple[float, float, float, float, float, float]
+
+
+def _as_gephi_filter(values: Sequence[float]) -> GephiFilter:
+    return (
+        float(values[0]),
+        float(values[1]),
+        float(values[2]),
+        float(values[3]),
+        float(values[4]),
+        float(values[5]),
+    )
+
+
+GEPHI_FILTERS: Final[dict[str, GephiFilter]] = {
+    name: _as_gephi_filter(values) for name, values in PALETTES["gephi"].items()
+}
+#: Available Gephi generative palette identifiers.
+GEPHI_PALETTES: Final[tuple[str, ...]] = tuple(GEPHI_FILTERS)
 
 
 def pal_npg(palette: str = "nrc", alpha: float = 1.0) -> PaletteFunc:
@@ -338,6 +361,259 @@ def pal_d3(palette: str = "category10", alpha: float = 1.0) -> PaletteFunc:
         if alpha < 1:
             return apply_alpha(selected, alpha)
         return selected
+
+    return palette_func
+
+
+@cache
+def _gephi_color_samples(filter_values: GephiFilter) -> np.ndarray:
+    grid = np.meshgrid(
+        np.linspace(0, 1, 21),
+        np.linspace(-1, 1, 21),
+        np.linspace(-1, 1, 21),
+        indexing="ij",
+    )
+    samples = np.stack(grid, axis=-1).reshape(-1, 3)
+    valid = np.array(
+        [_gephi_check_color(sample, filter_values) for sample in samples], dtype=bool
+    )
+    return samples[valid]
+
+
+def _gephi_generate_palette_quality(colors_count: int) -> int:
+    quality = 50
+
+    if colors_count > 300:
+        quality = 2
+    elif colors_count > 200:
+        quality = 5
+    elif colors_count > 100:
+        quality = 10
+    elif colors_count > 50:
+        quality = 25
+
+    return quality
+
+
+def _gephi_generate_palette(colors_count: int, filter_values: GephiFilter) -> list[str]:
+    k_means = _gephi_generate_random_kmeans(colors_count, filter_values)
+    color_samples = _gephi_color_samples(filter_values)
+    quality = _gephi_generate_palette_quality(colors_count)
+    samples_closest = np.zeros(len(color_samples), dtype=int)
+
+    for _ in range(quality):
+        min_distance = np.full(len(color_samples), np.inf)
+
+        for index, k_mean in enumerate(k_means):
+            distance = _gephi_distance_sq(color_samples, k_mean)
+            update = distance < min_distance
+            min_distance[update] = distance[update]
+            samples_closest[update] = index
+
+        free_color_samples = color_samples.copy()
+
+        for index in range(len(k_means)):
+            assigned = samples_closest == index
+            if assigned.any():
+                candidate_k_mean = color_samples[assigned].mean(axis=0)
+            else:
+                candidate_k_mean = np.zeros(3)
+
+            if assigned.any() and _gephi_check_color(candidate_k_mean, filter_values):
+                k_means[index] = candidate_k_mean
+            elif len(free_color_samples):
+                closest = _gephi_closest_sample(free_color_samples, candidate_k_mean)
+                k_means[index] = free_color_samples[closest]
+            else:
+                closest = _gephi_closest_sample(color_samples, candidate_k_mean)
+                k_means[index] = color_samples[closest]
+
+            if len(free_color_samples):
+                keep = ~np.all(free_color_samples == k_means[index], axis=1)
+                free_color_samples = free_color_samples[keep]
+
+    return [_gephi_lab_to_hex(color) for color in _gephi_sort_colors(k_means)]
+
+
+def _gephi_generate_random_kmeans(
+    colors_count: int, filter_values: GephiFilter
+) -> np.ndarray:
+    k_means = np.empty((colors_count, 3), dtype=float)
+
+    for index in range(colors_count):
+        lab = np.array(
+            [
+                np.random.random(),
+                2 * np.random.random() - 1,
+                2 * np.random.random() - 1,
+            ]
+        )
+        while not _gephi_check_color(lab, filter_values):
+            lab = np.array(
+                [
+                    np.random.random(),
+                    2 * np.random.random() - 1,
+                    2 * np.random.random() - 1,
+                ]
+            )
+        k_means[index] = lab
+
+    return k_means
+
+
+def _gephi_closest_sample(samples: np.ndarray, target: np.ndarray) -> int:
+    return int(np.argmin(_gephi_distance_sq(samples, target)))
+
+
+def _gephi_distance_sq(samples: np.ndarray, target: np.ndarray) -> np.ndarray:
+    delta = samples - target
+    return np.sum(delta * delta, axis=1)
+
+
+def _gephi_sort_colors(colors: np.ndarray) -> np.ndarray:
+    if len(colors) <= 1:
+        return colors
+
+    remaining = list(range(len(colors)))
+    sorted_indices = [remaining.pop(0)]
+
+    while remaining:
+        candidate_colors = colors[remaining]
+        current_colors = colors[sorted_indices]
+        distances = np.min(
+            np.sum(
+                (candidate_colors[:, None, :] - current_colors[None, :, :]) ** 2,
+                axis=2,
+            ),
+            axis=1,
+        )
+        next_index = int(np.argmax(distances))
+        sorted_indices.append(remaining.pop(next_index))
+
+    return colors[sorted_indices]
+
+
+def _gephi_check_color(lab: np.ndarray, filter_values: GephiFilter) -> bool:
+    rgb = _gephi_lab_to_rgb(lab)
+    hue, chroma, luminance = _gephi_lab_to_hcl(lab)
+    hmin, hmax, cmin, cmax, lmin, lmax = filter_values
+
+    hue_ok = hmin <= hue <= hmax if hmin < hmax else hue >= hmin or hue <= hmax
+
+    return bool(
+        not np.isnan(rgb).any()
+        and np.all(rgb >= 0)
+        and np.all(rgb < 256)
+        and hue_ok
+        and cmin <= chroma <= cmax
+        and lmin <= luminance <= lmax
+    )
+
+
+def _gephi_lab_to_hex(lab: np.ndarray) -> str:
+    red, green, blue = (int(value) for value in _gephi_lab_to_rgb(lab))
+    return f"#{red:02X}{green:02X}{blue:02X}"
+
+
+def _gephi_lab_to_rgb(lab: np.ndarray) -> np.ndarray:
+    return _gephi_xyz_to_rgb(_gephi_lab_to_xyz(lab))
+
+
+def _gephi_lab_to_xyz(lab: np.ndarray) -> np.ndarray:
+    sl = (lab[0] + 0.16) / 1.16
+    illuminant = np.array([0.96421, 1.0, 0.82519])
+    y_value = illuminant[1] * _gephi_finv(sl)
+    x_value = illuminant[0] * _gephi_finv(sl + (lab[1] / 5))
+    z_value = illuminant[2] * _gephi_finv(sl - (lab[2] / 2))
+    return np.array([x_value, y_value, z_value])
+
+
+def _gephi_xyz_to_rgb(xyz: np.ndarray) -> np.ndarray:
+    red_linear = 3.2406 * xyz[0] - 1.5372 * xyz[1] - 0.4986 * xyz[2]
+    green_linear = -0.9689 * xyz[0] + 1.8758 * xyz[1] + 0.0415 * xyz[2]
+    blue_linear = 0.0557 * xyz[0] - 0.204 * xyz[1] + 1.057 * xyz[2]
+
+    if (
+        min(red_linear, green_linear, blue_linear) < -0.001
+        or max(red_linear, green_linear, blue_linear) > 1.001
+    ):
+        red_linear = min(max(red_linear, 0), 1)
+        green_linear = min(max(green_linear, 0), 1)
+        blue_linear = min(max(blue_linear, 0), 1)
+
+    return np.array(
+        [
+            round(255 * _gephi_correct1(red_linear)),
+            round(255 * _gephi_correct1(green_linear)),
+            round(255 * _gephi_correct1(blue_linear)),
+        ],
+        dtype=float,
+    )
+
+
+def _gephi_lab_to_hcl(lab: np.ndarray) -> tuple[float, float, float]:
+    luminance = (lab[0] - 0.09) / 0.61
+    radius = math.sqrt(lab[1] ** 2 + lab[2] ** 2)
+    chroma = radius / (luminance * 0.311 + 0.125)
+    angle = math.atan2(lab[1], lab[2])
+    hue = ((math.tau / 6 - angle) / math.tau) * 360
+
+    if hue < 0:
+        hue += 360
+
+    return hue, chroma, luminance
+
+
+def _gephi_finv(value: float) -> float:
+    threshold = 6 / 29
+    if value > threshold:
+        return value**3
+    return 3 * threshold**2 * (value - (4 / 29))
+
+
+def _gephi_correct1(channel: float) -> float:
+    alpha = 0.055
+    if channel <= 0.0031308:
+        return 12.92 * channel
+    return (1 + alpha) * channel ** (1 / 2.4) - alpha
+
+
+def pal_gephi(palette: str = "default", alpha: float = 1.0) -> PaletteFunc:
+    """
+    Gephi generative color palette.
+
+    Args:
+        palette: Palette name. See `GEPHI_PALETTES` for available options.
+        alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Uses NumPy's global random state directly. Call `numpy.random.seed()`
+        before generating colors or drawing a plot to get reproducible output.
+
+    Returns:
+        A callable that takes n and returns a color sequence.
+
+    Raises:
+        ValueError: If the palette name, alpha, or requested size is invalid.
+    """
+    if palette not in GEPHI_PALETTES:
+        raise ValueError(f"Unknown Gephi palette: {palette}")
+
+    if not 0 < alpha <= 1:
+        raise ValueError("alpha must be in (0, 1]")
+
+    filter_values = GEPHI_FILTERS[palette]
+
+    def palette_func(n: int) -> Sequence[str]:
+        if n < 0:
+            raise ValueError("n must be a non-negative integer")
+        if n == 0:
+            return []
+
+        colors = _gephi_generate_palette(n, filter_values)
+        if alpha < 1:
+            return apply_alpha(colors, alpha)
+        return colors
 
     return palette_func
 

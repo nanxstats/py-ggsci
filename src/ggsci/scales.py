@@ -18,6 +18,7 @@ from .palettes import (
     pal_flatui,
     pal_frontiers,
     pal_futurama,
+    pal_gephi,
     pal_gsea,
     pal_igv,
     pal_iterm,
@@ -400,6 +401,54 @@ class scale_fill_d3(scale_discrete):
     def __post_init__(self, palette: str, alpha: float) -> None:
         super().__post_init__()
         object.__setattr__(self, "palette", pal_d3(palette, alpha))
+
+
+@dataclass
+class scale_color_gephi(scale_discrete):
+    """
+    Gephi generative color scale.
+
+    Args:
+        palette: Palette name. See `GEPHI_PALETTES` for available options.
+        alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Uses NumPy's global random state directly. Call `numpy.random.seed()`
+        before drawing the plot for reproducible output.
+    """
+
+    _aesthetics = ["color"]
+
+    palette: InitVar[str] = "default"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        object.__setattr__(self, "palette", pal_gephi(palette, alpha))
+
+
+@dataclass
+class scale_fill_gephi(scale_discrete):
+    """
+    Gephi generative fill scale.
+
+    Args:
+        palette: Palette name. See `GEPHI_PALETTES` for available options.
+        alpha: Transparency level, between 0 and 1.
+
+    Details:
+        Uses NumPy's global random state directly. Call `numpy.random.seed()`
+        before drawing the plot for reproducible output.
+    """
+
+    _aesthetics = ["fill"]
+
+    palette: InitVar[str] = "default"
+    alpha: InitVar[float] = 1.0
+
+    def __post_init__(self, palette: str, alpha: float) -> None:
+        super().__post_init__()
+        object.__setattr__(self, "palette", pal_gephi(palette, alpha))
 
 
 @dataclass
@@ -1182,6 +1231,7 @@ scale_colour_bmj = scale_color_bmj
 scale_colour_jco = scale_color_jco
 scale_colour_ucscgb = scale_color_ucscgb
 scale_colour_d3 = scale_color_d3
+scale_colour_gephi = scale_color_gephi
 scale_colour_observable = scale_color_observable
 scale_colour_primer = scale_color_primer
 scale_colour_atlassian = scale_color_atlassian
