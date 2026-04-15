@@ -5,6 +5,7 @@ from __future__ import annotations
 import inspect
 from collections.abc import Callable
 
+import numpy as np
 import pytest
 from plotnine.scales import scale_color_gradientn, scale_fill_gradientn
 
@@ -83,6 +84,16 @@ def test_british_aliases_identity():
         assert getattr(sc, uk) is getattr(sc, us)
 
 
+def test_gephi_scale_palette_deterministic_with_seed():
+    np.random.seed(42)
+    first = sc.scale_color_gephi().palette(8)
+
+    np.random.seed(42)
+    second = sc.scale_color_gephi().palette(8)
+
+    assert first == second
+
+
 def test_init_exports_alignment():
     # Importing from package root should expose the same objects
     import ggsci as pkg
@@ -92,9 +103,12 @@ def test_init_exports_alignment():
         "scale_color_npg",
         "scale_fill_npg",
         "scale_colour_npg",
+        "scale_color_gephi",
         "scale_color_gsea",
         "scale_fill_bs5",
+        "GEPHI_PALETTES",
         "pal_npg",
+        "pal_gephi",
         "pal_gsea",
     ]
     for name in names:

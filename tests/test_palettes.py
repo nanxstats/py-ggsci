@@ -5,6 +5,7 @@ from __future__ import annotations
 import inspect
 from collections.abc import Callable
 
+import numpy as np
 import pytest
 
 from ggsci import palettes as pl
@@ -37,13 +38,16 @@ DISCRETE_NAMES, CONTINUOUS_NAMES = _discrete_and_continuous()
 
 def _iter_discrete_palette_cases(
     name: str,
-) -> list[tuple[str, list[str], dict[str, str]]]:
+) -> list[tuple[str, list[str] | None, dict[str, str]]]:
     if name == "iterm":
-        cases: list[tuple[str, list[str], dict[str, str]]] = []
+        cases: list[tuple[str, list[str] | None, dict[str, str]]] = []
         for palette_key, variants in PALETTES_ITERM.items():
             for variant, colors in variants.items():
                 cases.append((palette_key, list(colors), {"variant": variant}))
         return cases
+
+    if name == "gephi":
+        return [(palette_key, None, {}) for palette_key in PALETTES[name]]
 
     return [
         (palette_key, list(colors), {})
@@ -61,14 +65,17 @@ def test_discrete_palette_happy_path_and_alpha(name: str):
     for palette_key, colors, extra_kwargs in palette_iter:
         # Happy path
         pal_fn = func(palette=palette_key, alpha=1.0, **extra_kwargs)
-        n = min(3, len(colors))
+        n = 3 if colors is None else min(3, len(colors))
         out = pal_fn(n)
         assert isinstance(out, list) and len(out) == n
         assert all(c.startswith("#") and len(c) == 7 for c in out)
 
-        # Too many requested colors -> error
-        with pytest.raises(ValueError):
-            pal_fn(len(colors) + 1)
+        if colors is None:
+            assert pal_fn(0) == []
+        else:
+            # Too many requested colors -> error
+            with pytest.raises(ValueError):
+                pal_fn(len(colors) + 1)
 
         # Alpha applied in discrete palette function
         pal_fn_a = func(palette=palette_key, alpha=0.6, **extra_kwargs)
@@ -92,6 +99,25 @@ def test_discrete_palette_errors(name: str):
     for bad_alpha in (0.0, -0.1, 1.0 + 1e-9):
         with pytest.raises(ValueError):
             func(alpha=bad_alpha)
+
+
+def test_gephi_palette_deterministic_with_seed():
+    np.random.seed(42)
+    out_1 = pl.pal_gephi("default")(10)
+
+    np.random.seed(42)
+    out_2 = pl.pal_gephi("default")(10)
+
+    assert out_1 == out_2
+
+    np.random.seed(42)
+    alpha_1 = pl.pal_gephi("fancy_light", alpha=0.6)(10)
+
+    np.random.seed(42)
+    alpha_2 = pl.pal_gephi("fancy_light", alpha=0.6)(10)
+
+    assert alpha_1 == alpha_2
+    assert all(color.endswith(_alpha_hex(0.6)) for color in alpha_1)
 
 
 @pytest.mark.parametrize("name", CONTINUOUS_NAMES)
