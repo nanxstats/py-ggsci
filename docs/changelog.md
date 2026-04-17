@@ -10,7 +10,7 @@
 
   This adds 17 presets adapted from Gephi's palette engine to generate
   visually distinct colors on demand. Because the generator uses NumPy's
-  global random state directly, call `np.random.seed()` immediately before
+  global random state directly, call `numpy.random.seed()` immediately before
   palette evaluation or plot rendering for reproducible output.
 
 ## py-ggsci 1.3.0
