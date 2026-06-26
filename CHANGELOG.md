@@ -1,5 +1,26 @@
 # Changelog
 
+## py-ggsci 2.1.0
+
+### Improvements
+
+- Synchronized iTerm color palettes with upstream (#66).
+
+  This update added 66 new palettes to `ITERM_PALETTES`:
+  Aardvark Ink, Atlas Ragnarok, Aura Dark, base16-icy, cyberpunk-icy,
+  Claude variations, Clear variations, Cool Night, Electron Highlighter Day,
+  Emerald Synth, Everforest variations, Gleam variations, JetCalm Light,
+  Karasu variations, Karma variations, Keys Ocean Sunset variations,
+  Klein Void, London variations, Mesila One, Monokai SublimeText, Moonwalk,
+  Neon Purple, Oxide, Patina variations, Sandstone variations, Sauber,
+  Sequoia variations, Serendipity variations, Shokunin, Squintless,
+  Sumi variations, Token variations, and Trapped in Amber. These palettes are
+  now usable by `pal_iterm()`, `scale_color_iterm()`, and `scale_fill_iterm()`.
+
+  Additionally, the color values for Adwaita, the Catppuccin palettes
+  (Frappe, Latte, Macchiato, Mocha), and Electron Highlighter have been
+  updated to match the latest upstream color specifications.
+
 ## py-ggsci 2.0.0
 
 ### New features
