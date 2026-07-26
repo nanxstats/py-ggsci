@@ -27,3 +27,10 @@ git clone https://github.com/nanxstats/py-ggsci.git
 cd py-ggsci
 python3 -m pip install -e .
 ```
+
+## Related projects
+
+ggsci is also available in other programming languages:
+
+- [ggsci](https://github.com/nanxstats/ggsci) - ggsci color palettes for ggplot2 in R.
+- [ggsci-rs](https://github.com/nanxstats/ggsci-rs) - ggsci color palettes for Rust, Ratatui, and ggsql.
