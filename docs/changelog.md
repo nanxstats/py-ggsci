@@ -1,5 +1,27 @@
 # Changelog
 
+## py-ggsci 2.2.0
+
+### Improvements
+
+- Synchronized iTerm color palettes with upstream (#72).
+
+  This update added 50 new palettes to `ITERM_PALETTES`:
+  Acid Lime, Amber CRT Retro, Aubade, Cassette Tape, Citrus Ink, CRT Amber,
+  datum variations, Daybreak, Driftwood, Eclipse, Forge Ember, Frostbyte,
+  Graphite, Green Phosphor CRT, JetBrains Islands Dark, Letterpress,
+  Matcha Zen, Miami Heat, Midnight Arcade, Modus Operandi and Modus Vivendi
+  Deuteranopia and Tritanopia variations, Nebula Drift, Noctis variations,
+  Opaline, Outrun Electric, Oxblood, Patina, Porcelain, Prism, Purple Portal,
+  Pyrokai variations, Terminal Green 1999, Vaporwave Sunset, Velvet Court,
+  Verdigris, and Y2K Chrome. These palettes are now usable by `pal_iterm()`,
+  `scale_color_iterm()`, and `scale_fill_iterm()`.
+
+### Documentation
+
+- Added a related projects section to the README, linking to the R package
+  and Rust port of ggsci (#70).
+
 ## py-ggsci 2.1.0
 
 ### Improvements
