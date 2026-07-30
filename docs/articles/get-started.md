@@ -262,7 +262,9 @@ print(render_png(LAST))
 ### COSMIC
 
 ```python exec="on" session="default" source="above"
-LAST = (p1 + scale_color_cosmic("hallmarks_light")) | (p2 + scale_fill_cosmic("hallmarks_light"))
+LAST = (p1 + scale_color_cosmic("hallmarks_light")) | (
+    p2 + scale_fill_cosmic("hallmarks_light")
+)
 ```
 
 ```python exec="on" session="default" html="true"
@@ -270,7 +272,9 @@ print(render_png(LAST))
 ```
 
 ```python exec="on" session="default" source="above"
-LAST = (p1 + scale_color_cosmic("hallmarks_dark")) | (p2 + scale_fill_cosmic("hallmarks_dark"))
+LAST = (p1 + scale_color_cosmic("hallmarks_dark")) | (
+    p2 + scale_fill_cosmic("hallmarks_dark")
+)
 ```
 
 ```python exec="on" session="default" html="true"
@@ -278,7 +282,9 @@ print(render_png(LAST))
 ```
 
 ```python exec="on" session="default" source="above"
-LAST = (p1 + scale_color_cosmic("signature_substitutions")) | (p2 + scale_fill_cosmic("signature_substitutions"))
+LAST = (p1 + scale_color_cosmic("signature_substitutions")) | (
+    p2 + scale_fill_cosmic("signature_substitutions")
+)
 ```
 
 ```python exec="on" session="default" html="true"
@@ -308,7 +314,9 @@ print(render_png(LAST))
 ### Tron Legacy (use with dark theme)
 
 ```python exec="on" session="default" source="above"
-LAST = (p1 + theme_dark() + scale_color_tron()) | (p2 + theme_dark() + scale_fill_tron())
+LAST = (p1 + theme_dark() + scale_color_tron()) | (
+    p2 + theme_dark() + scale_fill_tron()
+)
 ```
 
 ```python exec="on" session="default" html="true"
@@ -419,6 +427,7 @@ p4 = (
         panel_grid_minor=element_blank(),
     )
 )
+
 
 # Placeholder panel to pad compositions to equal column counts
 def blank_panel():
