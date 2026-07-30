@@ -15,6 +15,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Aardvark Blue",
     "Aardvark Ink",
     "Abernathy",
+    "Acid Lime",
     "Adventure Time",
     "Adventure",
     "Adwaita Dark",
@@ -24,6 +25,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Aizen Light",
     "Alabaster",
     "Alien Blood",
+    "Amber CRT Retro",
     "Andromeda",
     "Apple Classic",
     "Apple System Colors Light",
@@ -37,6 +39,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Atom One Dark",
     "Atom One Light",
     "Atom",
+    "Aubade",
     "Aura Dark",
     "Aura",
     "Aurora",
@@ -82,6 +85,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "C64",
     "Calamity",
     "Carbonfox",
+    "Cassette Tape",
     "Catppuccin Frappe",
     "Catppuccin Latte",
     "Catppuccin Macchiato",
@@ -92,6 +96,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Challenger Deep",
     "Chester",
     "Ciapre",
+    "Citrus Ink",
     "Citruszest",
     "Claude Dark",
     "Claude Light",
@@ -107,6 +112,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Coffee Theme",
     "Cool Night",
     "Crayon Pony Fish",
+    "CRT Amber",
     "Cursor Dark",
     "Cursor Light",
     "Cutie Pro",
@@ -121,7 +127,10 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Darkermatrix",
     "Darkmatrix",
     "Darkside",
+    "datum (dark)",
+    "datum (light)",
     "Dawnfox",
+    "Daybreak",
     "Dayfox",
     "Deep",
     "Desert",
@@ -137,10 +146,12 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Dot Gov",
     "Dracula",
     "Dracula+",
+    "Driftwood",
     "Duckbones",
     "Duotone Dark",
     "Duskfox",
     "Earthsong",
+    "Eclipse",
     "Electron Highlighter Day",
     "Electron Highlighter",
     "Elegant",
@@ -174,8 +185,10 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Flexoki Light",
     "Floraverse",
     "Forest Blue",
+    "Forge Ember",
     "Framer",
     "Front End Delight",
+    "Frostbyte",
     "Fun Forrest",
     "Galaxy",
     "Galizur",
@@ -196,7 +209,9 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Gleam Classic",
     "Gleam",
     "Grape",
+    "Graphite",
     "Grass",
+    "Green Phosphor CRT",
     "Grey Green",
     "Gruber Darker",
     "Gruvbox Dark Hard",
@@ -252,6 +267,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Japanesque",
     "Jellybeans",
     "JetBrains Darcula",
+    "JetBrains Islands Dark",
     "JetCalm Light",
     "Jubi",
     "Kanagawa Dragon",
@@ -283,6 +299,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Laser",
     "Later This Evening",
     "Lavandula",
+    "Letterpress",
     "Light Owl",
     "Liquid Carbon Transparent",
     "Liquid Carbon",
@@ -293,6 +310,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Lovelace",
     "Man Page",
     "Mariana",
+    "Matcha Zen",
     "Material Dark",
     "Material Darker",
     "Material Design Colors",
@@ -307,13 +325,19 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Mellifluous",
     "Mellow",
     "Mesila One",
+    "Miami Heat",
     "Miasma",
+    "Midnight Arcade",
     "Midnight In Mojave",
     "Mirage",
     "Misterioso",
+    "Modus Operandi Deuteranopia",
     "Modus Operandi Tinted",
+    "Modus Operandi Tritanopia",
     "Modus Operandi",
+    "Modus Vivendi Deuteranopia",
     "Modus Vivendi Tinted",
+    "Modus Vivendi Tritanopia",
     "Modus Vivendi",
     "Molokai",
     "Mona Lisa",
@@ -334,6 +358,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Moonfly",
     "Moonwalk",
     "N0Tch2K",
+    "Nebula Drift",
     "Neobones Dark",
     "Neobones Light",
     "Neon Purple",
@@ -348,6 +373,17 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Niji",
     "No Clown Fiesta Light",
     "No Clown Fiesta",
+    "Noctis Azureus",
+    "Noctis Bordo",
+    "Noctis Hibernus",
+    "Noctis Lilac",
+    "Noctis Lux",
+    "Noctis Minimus",
+    "Noctis Obscuro",
+    "Noctis Sereno",
+    "Noctis Uva",
+    "Noctis Viola",
+    "Noctis",
     "Nocturnal Winter",
     "Nord Light",
     "Nord Wave",
@@ -369,9 +405,12 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "One Half Light",
     "Onenord Light",
     "Onenord",
+    "Opaline",
     "Operator Mono Dark",
+    "Outrun Electric",
     "Overnight Slumber",
     "owl",
+    "Oxblood",
     "Oxide",
     "Oxocarbon",
     "Pale Night Hc",
@@ -383,6 +422,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Patina Light",
     "Patina Moss",
     "Patina Stellar",
+    "Patina",
     "Paul Millr",
     "Pencil Dark",
     "Pencil Light",
@@ -397,12 +437,17 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Poimandres White",
     "Poimandres",
     "Popping And Locking",
+    "Porcelain",
     "Powershell",
     "Primary",
+    "Prism",
     "Pro Light",
     "Pro",
+    "Purple Portal",
     "Purple Rain",
     "Purplepeter",
+    "Pyrokai Light",
+    "Pyrokai",
     "Rapture",
     "Raycast Dark",
     "Raycast Light",
@@ -502,6 +547,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Terafox",
     "Terminal Basic Dark",
     "Terminal Basic",
+    "Terminal Green 1999",
     "Thayer Bright",
     "The Hulk",
     "Tinacious Design Dark",
@@ -532,8 +578,11 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "urban",
     "Urple",
     "Vague",
+    "Vaporwave Sunset",
     "Vaughn",
+    "Velvet Court",
     "Vercel",
+    "Verdigris",
     "Vesper",
     "Vibrant Ink",
     "Vimbones",
@@ -552,6 +601,7 @@ ITERM_PALETTES: Final[tuple[str, ...]] = (
     "Xcode Light hc",
     "Xcode Light",
     "Xcode WWDC",
+    "Y2K Chrome",
     "Zenbones Dark",
     "Zenbones Light",
     "Zenbones",
@@ -590,6 +640,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#1093F5", "#CDCD00", "#CD0000", "#00CDCD", "#00CD00", "#CD00CD"],
         "bright": ["#11B5F6", "#FFFF00", "#FF0000", "#00FFFF", "#00FF00", "#FF00FF"],
     },
+    "Acid Lime": {
+        "normal": ["#4DECA0", "#EEFF5C", "#FF3344", "#50FFB4", "#97E63C", "#A6FF6B"],
+        "bright": ["#4DECA0", "#DBFF45", "#FF3344", "#50FFB4", "#97E63C", "#A6FF6B"],
+    },
     "Adventure Time": {
         "normal": ["#0F4AC6", "#E7741E", "#BD0013", "#70A598", "#4AB118", "#665993"],
         "bright": ["#1997C6", "#EFC11A", "#FC5F5A", "#C8FAF4", "#9EFF6E", "#9B5953"],
@@ -625,6 +679,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Alien Blood": {
         "normal": ["#2F6A7F", "#717F24", "#7F2B27", "#327F77", "#2F7E25", "#47587F"],
         "bright": ["#00AAE0", "#BDE000", "#E08009", "#00E0C4", "#18E000", "#0058E0"],
+    },
+    "Amber CRT Retro": {
+        "normal": ["#FF8C00", "#FFC742", "#FF6A00", "#FFD27F", "#FFB000", "#FFA033"],
+        "bright": ["#FFAB3D", "#FFE08A", "#FF8A1E", "#FFE3B0", "#FFC742", "#FFC266"],
     },
     "Andromeda": {
         "normal": ["#2472C8", "#E5E512", "#CD3131", "#0FA8CD", "#05BC79", "#BC3FBC"],
@@ -677,6 +735,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Atom": {
         "normal": ["#85BEFD", "#FFD7B1", "#FD5FF1", "#85BEFD", "#87C38A", "#B9B6FC"],
         "bright": ["#96CBFE", "#F5FFA8", "#FD5FF1", "#85BEFD", "#94FA36", "#B9B6FC"],
+    },
+    "Aubade": {
+        "normal": ["#4A3CC0", "#8C610C", "#C0303A", "#AE3F84", "#2E7D6E", "#8A4BC0"],
+        "bright": ["#4A3CC0", "#AE3F84", "#C0303A", "#AE3F84", "#2E7D6E", "#D8B670"],
     },
     "Aura Dark": {
         "normal": ["#A277FF", "#FFCA85", "#FF6767", "#A277FF", "#61FFCA", "#61FFCA"],
@@ -858,6 +920,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#78A9FF", "#08BDBA", "#EE5396", "#33B1FF", "#25BE6A", "#BE95FF"],
         "bright": ["#8CB6FF", "#2DC7C4", "#F16DA6", "#52BDFF", "#46C880", "#C8A5FF"],
     },
+    "Cassette Tape": {
+        "normal": ["#7C2D12", "#BE123C", "#B91C1C", "#B45309", "#3F6212", "#0F766E"],
+        "bright": ["#63240E", "#9C0F31", "#941616", "#904207", "#324E0E", "#0C5E58"],
+    },
     "Catppuccin Frappe": {
         "normal": ["#8CAAEE", "#E5C890", "#E78284", "#81C8BE", "#A6D189", "#F4B8E4"],
         "bright": ["#ADC2F3", "#ECD7AE", "#EDA0A2", "#98D2CA", "#B9DBA2", "#F38ED8"],
@@ -897,6 +963,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Ciapre": {
         "normal": ["#576D8C", "#CC8B3F", "#8E0D16", "#5C4F4B", "#48513B", "#724D7C"],
         "bright": ["#3097C6", "#DCDF7C", "#AC3835", "#F3DBB2", "#A6A75D", "#D33061"],
+    },
+    "Citrus Ink": {
+        "normal": ["#C2EF45", "#E6C84A", "#FF6B5B", "#CFE89A", "#5FD3A0", "#F2B441"],
+        "bright": ["#B8E62E", "#F2A23E", "#FF8174", "#D5EBA6", "#72D8AB", "#B8E62E"],
     },
     "Citruszest": {
         "normal": ["#00BFFF", "#FFD400", "#FF5454", "#48D1CC", "#00CC7A", "#FF90FE"],
@@ -958,6 +1028,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#8C87B0", "#AB311B", "#91002B", "#E8A866", "#579524", "#692F50"],
         "bright": ["#CFC9FF", "#C8381D", "#C5255D", "#FFCEAF", "#8DFF57", "#FC6CBA"],
     },
+    "CRT Amber": {
+        "normal": ["#C084FC", "#FDE68A", "#EF4444", "#F59E0B", "#84CC16", "#F97316"],
+        "bright": ["#CD9DFD", "#FDEB9F", "#F26969", "#F7B13C", "#9DD645", "#FA8F45"],
+    },
     "Cursor Dark": {
         "normal": ["#81A1C1", "#D2943E", "#FC6B83", "#88C0D0", "#3FA266", "#B48EAD"],
         "bright": ["#87A6C4", "#F1B467", "#FC6B83", "#88C0D0", "#70B489", "#B48EAD"],
@@ -1014,9 +1088,21 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#1C98E8", "#F2D42C", "#E8341C", "#1C98E8", "#68C256", "#8E69C9"],
         "bright": ["#387CD3", "#EFD64B", "#E05A4F", "#3D97E2", "#77B869", "#957BBE"],
     },
+    "datum (dark)": {
+        "normal": ["#69B9F7", "#E8DF69", "#FE9864", "#6AE5EC", "#54DCAA", "#FA94CD"],
+        "bright": ["#B2DAFB", "#FCDCAD", "#F8BD5F", "#A5F5F9", "#54DCAA", "#F5B9D9"],
+    },
+    "datum (light)": {
+        "normal": ["#0176B8", "#656023", "#A24500", "#0D7A7F", "#007553", "#973070"],
+        "bright": ["#2F516C", "#4D3919", "#976700", "#154B4E", "#007553", "#633750"],
+    },
     "Dawnfox": {
         "normal": ["#286983", "#EA9D34", "#B4637A", "#56949F", "#618774", "#907AA9"],
         "bright": ["#2D81A3", "#EEA846", "#C26D85", "#5CA7B4", "#629F81", "#9A80B9"],
+    },
+    "Daybreak": {
+        "normal": ["#186875", "#795900", "#AF2817", "#006A62", "#3C6A12", "#754193"],
+        "bright": ["#207887", "#9A4C1F", "#C03A27", "#087A71", "#538625", "#8552A3"],
     },
     "Dayfox": {
         "normal": ["#2848A9", "#AC5402", "#A5222F", "#287980", "#396847", "#6E33CE"],
@@ -1078,6 +1164,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#82AAFF", "#FFCB6B", "#FF5555", "#8BE9FD", "#50FA7B", "#C792EA"],
         "bright": ["#D6ACFF", "#FFCB6B", "#FF6E6E", "#A4FFFF", "#69FF94", "#FF92DF"],
     },
+    "Driftwood": {
+        "normal": ["#78B3B5", "#E1B869", "#E77467", "#A5C4B1", "#AAB971", "#C9A0BD"],
+        "bright": ["#92C6C7", "#E39962", "#F38F7E", "#BBD6C3", "#BECC8A", "#DAB6D1"],
+    },
     "Duckbones": {
         "normal": ["#00A3CB", "#E39500", "#E03600", "#00A3CB", "#5DCD97", "#795CCC"],
         "bright": ["#00B4E0", "#F6A100", "#FF4821", "#00B4E0", "#58DB9E", "#B3A1E6"],
@@ -1093,6 +1183,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Earthsong": {
         "normal": ["#1398B9", "#F5AE2E", "#C94234", "#509552", "#85C54C", "#D0633D"],
         "bright": ["#5FDAFF", "#E0D561", "#FF645A", "#84F088", "#98E036", "#FF9269"],
+    },
+    "Eclipse": {
+        "normal": ["#5FB9FF", "#F1C655", "#FF6366", "#3ADDC4", "#85DF5E", "#CEA5FF"],
+        "bright": ["#84CCFF", "#FAD77C", "#FF8688", "#68EAD3", "#A0EC7E", "#DDBFFF"],
     },
     "Electron Highlighter Day": {
         "normal": ["#366FF0", "#DF8E1D", "#F52A65", "#0A9FBF", "#10A877", "#8B4FE0"],
@@ -1226,6 +1320,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#8ED0CE", "#1A8E63", "#F8818E", "#31658C", "#92D3A2", "#5E468C"],
         "bright": ["#39A7A2", "#30C85A", "#FB3D66", "#6096BF", "#6BB48D", "#7E62B3"],
     },
+    "Forge Ember": {
+        "normal": ["#F0A24F", "#FFB347", "#FF4733", "#FFD27A", "#C4C24A", "#FF6A4D"],
+        "bright": ["#F0A24F", "#FF7A2D", "#FF4733", "#FFD27A", "#C4C24A", "#FF6A4D"],
+    },
     "Framer": {
         "normal": ["#00AAFF", "#FFCC33", "#FF5555", "#88DDFF", "#98EC65", "#AA88FF"],
         "bright": ["#33BBFF", "#FFD966", "#FF8888", "#BBECFF", "#B6F292", "#CEBBFF"],
@@ -1233,6 +1331,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Front End Delight": {
         "normal": ["#2C70B7", "#FA771D", "#F8511B", "#3CA1A6", "#565747", "#F02E4F"],
         "bright": ["#3393CA", "#FDC325", "#F74319", "#4FBCE6", "#74EC4C", "#E75E4F"],
+    },
+    "Frostbyte": {
+        "normal": ["#1A66BE", "#876010", "#C2384F", "#1A7E9E", "#2E7A56", "#5552CC"],
+        "bright": ["#1A66BE", "#9A5220", "#C2384F", "#1A7E9E", "#2E7A56", "#5552CC"],
     },
     "Fun Forrest": {
         "normal": ["#4699A3", "#BE8A13", "#D6262B", "#DA8213", "#919C00", "#8D4331"],
@@ -1314,9 +1416,17 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#487DF4", "#8DDC20", "#ED2261", "#3BDEED", "#1FA91B", "#8D35C9"],
         "bright": ["#A9BCEC", "#B2DC87", "#F0729A", "#9DE3EB", "#53AA5E", "#AD81C2"],
     },
+    "Graphite": {
+        "normal": ["#8DB4D0", "#CEC59D", "#E58888", "#A8C6D4", "#A7C59F", "#BAABCB"],
+        "bright": ["#A5C6DE", "#CFBA97", "#F19F9F", "#BCD6E2", "#B9D5B1", "#CCBEDD"],
+    },
     "Grass": {
         "normal": ["#0000A3", "#E7B000", "#FF5959", "#00BBBB", "#00BB00", "#EE59BB"],
         "bright": ["#0000BB", "#E7B000", "#FF5959", "#55FFFF", "#00BB00", "#FF55FF"],
+    },
+    "Green Phosphor CRT": {
+        "normal": ["#00CC44", "#66FF66", "#00AA00", "#66FFAA", "#33FF33", "#00FF88"],
+        "bright": ["#33FF77", "#99FF99", "#19CC19", "#99FFCC", "#66FF66", "#66FFAA"],
     },
     "Grey Green": {
         "normal": ["#00DEFF", "#F1FF01", "#FE1414", "#00FFBC", "#74FF00", "#FF00F0"],
@@ -1538,6 +1648,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#4581EB", "#C2C300", "#FA5355", "#33C2C1", "#126E00", "#FA54FF"],
         "bright": ["#6D9DF1", "#FFFF00", "#FB7172", "#60D3D1", "#67FF4F", "#FB82FF"],
     },
+    "JetBrains Islands Dark": {
+        "normal": ["#56A8F5", "#CF8E6D", "#F75464", "#2AACB8", "#6AAB73", "#C77DBB"],
+        "bright": ["#548AF7", "#F0AC81", "#F57E84", "#16BAAC", "#6DB083", "#B189F5"],
+    },
     "JetCalm Light": {
         "normal": ["#4682B4", "#5C3E00", "#A52A2A", "#0997B3", "#556B2F", "#A626A4"],
         "bright": ["#008080", "#808000", "#DF6C75", "#008080", "#2E8B57", "#C577DD"],
@@ -1662,6 +1776,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#4F4A7F", "#7F6F49", "#7D1625", "#58777F", "#337E6F", "#5A3F7F"],
         "bright": ["#8E87E0", "#E0C386", "#E05167", "#9AD4E0", "#52E0C4", "#A776E0"],
     },
+    "Letterpress": {
+        "normal": ["#2A5C8A", "#8A5E0A", "#B0202A", "#176B5F", "#506B24", "#6E4B2E"],
+        "bright": ["#2A5C8A", "#8A4FA0", "#B0202A", "#176B5F", "#506B24", "#176B5F"],
+    },
     "Light Owl": {
         "normal": ["#288ED7", "#E0AF02", "#DE3D3B", "#2AA298", "#08916A", "#D6438A"],
         "bright": ["#288ED7", "#DAAA01", "#DE3D3B", "#2AA298", "#08916A", "#D6438A"],
@@ -1701,6 +1819,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Mariana": {
         "normal": ["#6699CC", "#F9AE58", "#EC5F66", "#5FB4B4", "#99C794", "#C695C6"],
         "bright": ["#85ADD6", "#FAC761", "#F97B58", "#82C4C4", "#ACD1A8", "#D8B6D8"],
+    },
+    "Matcha Zen": {
+        "normal": ["#2E7C78", "#927000", "#C2452A", "#2A8585", "#4E8C2E", "#7E5BA6"],
+        "bright": ["#2E7C78", "#B05A1E", "#C2452A", "#2A8585", "#4E8C2E", "#7E5BA6"],
     },
     "Material Dark": {
         "normal": ["#134EB2", "#F6981E", "#B7141F", "#0E717C", "#457B24", "#701AA2"],
@@ -1758,9 +1880,17 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#DEC1FF", "#EBB3A9", "#93867F", "#5CC8FF", "#5CC8FF", "#7D70BA"],
         "bright": ["#DEC1FF", "#EBB3A9", "#93867F", "#5CC8FF", "#5CC8FF", "#7D70BA"],
     },
+    "Miami Heat": {
+        "normal": ["#29B6FF", "#FFCB52", "#FF3D7F", "#18E0FF", "#2EE6B6", "#B86BFF"],
+        "bright": ["#29B6FF", "#FF7847", "#FF2E97", "#18E0FF", "#2EE6B6", "#B86BFF"],
+    },
     "Miasma": {
         "normal": ["#78824B", "#B36D43", "#685742", "#C9A554", "#5F875F", "#BB7744"],
         "bright": ["#78824B", "#B36D43", "#685742", "#C9A554", "#5F875F", "#BB7744"],
+    },
+    "Midnight Arcade": {
+        "normal": ["#60A5FA", "#FBBF24", "#FB7185", "#22D3EE", "#22C55E", "#E879F9"],
+        "bright": ["#80B7FB", "#FCCB4B", "#FC8D9D", "#4EDCF1", "#4ED17E", "#ED94FA"],
     },
     "Midnight In Mojave": {
         "normal": ["#0A84FF", "#FFD60A", "#FF453A", "#5AC8FA", "#32D74B", "#BF5AF2"],
@@ -1774,17 +1904,33 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#338F86", "#FFAD29", "#FF4242", "#23D7D7", "#74AF68", "#9414E6"],
         "bright": ["#23D7D7", "#FFB929", "#FF3242", "#00EDE1", "#74CD68", "#FF37FF"],
     },
+    "Modus Operandi Deuteranopia": {
+        "normal": ["#0031A9", "#695500", "#A60000", "#005E8B", "#006800", "#721045"],
+        "bright": ["#3548CF", "#973300", "#972500", "#005F5F", "#00663F", "#531AB6"],
+    },
     "Modus Operandi Tinted": {
         "normal": ["#0031A9", "#6F5500", "#A60000", "#005E8B", "#006800", "#721045"],
         "bright": ["#3548CF", "#884900", "#972500", "#005F5F", "#00663F", "#531AB6"],
+    },
+    "Modus Operandi Tritanopia": {
+        "normal": ["#0031A9", "#695500", "#A60000", "#005E8B", "#006800", "#721045"],
+        "bright": ["#3548CF", "#973300", "#B21100", "#005F5F", "#00663F", "#531AB6"],
     },
     "Modus Operandi": {
         "normal": ["#0031A9", "#6F5500", "#A60000", "#005E8B", "#006800", "#721045"],
         "bright": ["#3548CF", "#884900", "#972500", "#005F5F", "#00663F", "#531AB6"],
     },
+    "Modus Vivendi Deuteranopia": {
+        "normal": ["#2FAFFF", "#CABF00", "#FF5F59", "#00D3D0", "#44BC44", "#FEACD0"],
+        "bright": ["#79A8FF", "#FFA00F", "#FF7F9F", "#6AE4B9", "#00C06F", "#B6A0FF"],
+    },
     "Modus Vivendi Tinted": {
         "normal": ["#2FAFFF", "#D0BC00", "#FF5F59", "#00D3D0", "#44BC44", "#FEACD0"],
         "bright": ["#79A8FF", "#FEC43F", "#FF6B55", "#6AE4B9", "#00C06F", "#B6A0FF"],
+    },
+    "Modus Vivendi Tritanopia": {
+        "normal": ["#2FAFFF", "#CABF00", "#FF5F59", "#00D3D0", "#44BC44", "#FEACD0"],
+        "bright": ["#79A8FF", "#FFA00F", "#FF6740", "#6AE4B9", "#00C06F", "#B6A0FF"],
     },
     "Modus Vivendi": {
         "normal": ["#2FAFFF", "#D0BC00", "#FF5F59", "#00D3D0", "#44BC44", "#FEACD0"],
@@ -1866,6 +2012,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#657D3E", "#A98051", "#A95551", "#C9C9C9", "#666666", "#767676"],
         "bright": ["#98BD5E", "#A99175", "#A97775", "#DCDCDC", "#8C8C8C", "#A3A3A3"],
     },
+    "Nebula Drift": {
+        "normal": ["#7C9BFF", "#FFCB6B", "#FF5C8D", "#57E6F0", "#66E6A8", "#C77DFF"],
+        "bright": ["#7C9BFF", "#FF9E64", "#FF5C8D", "#57E6F0", "#66E6A8", "#C77DFF"],
+    },
     "Neobones Dark": {
         "normal": ["#8190D4", "#B77E64", "#DE6E7C", "#66A5AD", "#90FF6B", "#B279A7"],
         "bright": ["#92A0E2", "#D68C67", "#E8838F", "#65B8C1", "#A0FF85", "#CF86C1"],
@@ -1921,6 +2071,50 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "No Clown Fiesta": {
         "normal": ["#BAD7FF", "#F4BF75", "#B46958", "#88AFA2", "#90A959", "#AA759F"],
         "bright": ["#BAD7FF", "#F4BF75", "#7E97AB", "#88AFA2", "#90A959", "#AA759F"],
+    },
+    "Noctis Azureus": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis Bordo": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis Hibernus": {
+        "normal": ["#0094F0", "#F49725", "#E34E1C", "#00BDD6", "#00B368", "#FF5792"],
+        "bright": ["#0FA3FF", "#FF8C00", "#FF4000", "#00CBE6", "#00D17A", "#FF6B9F"],
+    },
+    "Noctis Lilac": {
+        "normal": ["#0094F0", "#F49725", "#E34E1C", "#00BDD6", "#00B368", "#FF5792"],
+        "bright": ["#0FA3FF", "#FF8C00", "#FF4000", "#00CBE6", "#00D17A", "#FF6B9F"],
+    },
+    "Noctis Lux": {
+        "normal": ["#0094F0", "#F49725", "#E34E1C", "#00BDD6", "#00B368", "#FF5792"],
+        "bright": ["#0FA3FF", "#FF8C00", "#FF4000", "#00CBE6", "#00D17A", "#FF6B9F"],
+    },
+    "Noctis Minimus": {
+        "normal": ["#6196B8", "#C8A984", "#C08872", "#72B7C0", "#72C09F", "#C28097"],
+        "bright": ["#68A4CA", "#D1AA7B", "#CA8468", "#84C0C8", "#84C8AB", "#C88DA2"],
+    },
+    "Noctis Obscuro": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis Sereno": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis Uva": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis Viola": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
+    },
+    "Noctis": {
+        "normal": ["#49ACE9", "#E4B781", "#E66533", "#49D6E9", "#49E9A6", "#DF769B"],
+        "bright": ["#60B6EB", "#E69533", "#E97749", "#60DBEB", "#60EBB1", "#E798B3"],
     },
     "Nocturnal Winter": {
         "normal": ["#3182E0", "#F5F17A", "#F12D52", "#09C87A", "#09CD7E", "#FF2B6D"],
@@ -2006,9 +2200,17 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#81A1C1", "#EBCB8B", "#E06C75", "#88C0D0", "#9EC183", "#B988B0"],
         "bright": ["#81A1C1", "#EBCB8B", "#E06C75", "#8FBCBB", "#9EC183", "#B988B0"],
     },
+    "Opaline": {
+        "normal": ["#8FB4FF", "#FFC2AE", "#FF6B92", "#5FE3D8", "#86E6B4", "#BE9BFF"],
+        "bright": ["#B79BFF", "#F4D27E", "#FF81A2", "#72E6DD", "#95E9BD", "#FF9ED2"],
+    },
     "Operator Mono Dark": {
         "normal": ["#4387CF", "#D4D697", "#CA372D", "#72D5C6", "#4D7B3A", "#B86CB4"],
         "bright": ["#89D3F6", "#FDFDC5", "#C37D62", "#82EADA", "#83D0A2", "#FF2C7A"],
+    },
+    "Outrun Electric": {
+        "normal": ["#1EA8FC", "#FFD400", "#E61F44", "#42C6FF", "#A7DA1E", "#FF2AFC"],
+        "bright": ["#6DC6FD", "#FFE359", "#EF6D85", "#84DAFF", "#C6E76D", "#DF85FF"],
     },
     "Overnight Slumber": {
         "normal": ["#8DABE1", "#FFCB8B", "#FFA7C4", "#78CCF0", "#85CC95", "#C792EB"],
@@ -2017,6 +2219,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "owl": {
         "normal": ["#656565", "#CACACA", "#5A5A5A", "#7F7F7F", "#989898", "#B1B1B1"],
         "bright": ["#656565", "#CACACA", "#DA5B2C", "#7F7F7F", "#989898", "#B1B1B1"],
+    },
+    "Oxblood": {
+        "normal": ["#D9743F", "#E0B24A", "#FF4D54", "#E0A36A", "#C9A24A", "#E0556B"],
+        "bright": ["#E86B72", "#D9743F", "#FF686E", "#E4AE7C", "#CFAD60", "#C8324B"],
     },
     "Oxide": {
         "normal": ["#3BA6F5", "#C39900", "#ED756E", "#00BAAA", "#5BB661", "#968FF7"],
@@ -2061,6 +2267,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Patina Stellar": {
         "normal": ["#2F626F", "#6E5817", "#A84040", "#387775", "#3A7055", "#8A5A50"],
         "bright": ["#3F7381", "#826743", "#BF3C3C", "#337675", "#3E7A5E", "#9D594B"],
+    },
+    "Patina": {
+        "normal": ["#5FC9B0", "#C8A24A", "#D9603F", "#7FD0C0", "#9FC08C", "#D7B45A"],
+        "bright": ["#5FC9B0", "#D98E5A", "#DF785C", "#8ED6C8", "#ABC89A", "#E0C36A"],
     },
     "Paul Millr": {
         "normal": ["#396BD7", "#E7BF00", "#FF0000", "#66CCFF", "#79FF0F", "#B449BE"],
@@ -2118,6 +2328,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#458588", "#D79921", "#CC241D", "#689D6A", "#98971A", "#B16286"],
         "bright": ["#99C6CA", "#FABD2F", "#F42C3E", "#7EC16E", "#B8BB26", "#D3869B"],
     },
+    "Porcelain": {
+        "normal": ["#004CC8", "#855700", "#C60018", "#006873", "#157424", "#761BC3"],
+        "bright": ["#005BDB", "#AF2700", "#D60027", "#007F8F", "#1B842D", "#862AD2"],
+    },
     "Powershell": {
         "normal": ["#4140C3", "#C4A000", "#981A22", "#0E807F", "#098003", "#D33682"],
         "bright": ["#268AD2", "#FEFE45", "#EF2929", "#29FFFE", "#1CFE3C", "#FE13FA"],
@@ -2125,6 +2339,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Primary": {
         "normal": ["#4285F4", "#F4B400", "#DB4437", "#4285F4", "#0F9D58", "#DB4437"],
         "bright": ["#4285F4", "#F4B400", "#DB4437", "#0F9D58", "#0F9D58", "#4285F4"],
+    },
+    "Prism": {
+        "normal": ["#47B3FF", "#FAD77C", "#FF7192", "#31DCF2", "#71E0B0", "#9DA9FF"],
+        "bright": ["#77CAFF", "#FCA76D", "#FF96AD", "#6CEAFB", "#93ECC7", "#B8C1FF"],
     },
     "Pro Light": {
         "normal": ["#3B75FF", "#C6C440", "#E5492B", "#4ED2DE", "#50D148", "#ED66E8"],
@@ -2134,6 +2352,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#2009DB", "#999900", "#990000", "#00A6B2", "#00A600", "#B200B2"],
         "bright": ["#0000FF", "#E5E500", "#E50000", "#00E5E5", "#00D900", "#E500E5"],
     },
+    "Purple Portal": {
+        "normal": ["#FACC15", "#F472B6", "#FB7185", "#580FF0", "#34D399", "#38BDF8"],
+        "bright": ["#FBD644", "#F68BC3", "#FC8D9D", "#793FF3", "#5DDCAD", "#60CAF9"],
+    },
     "Purple Rain": {
         "normal": ["#00A2FA", "#FFC400", "#FF260E", "#00DEEF", "#9BE205", "#815BB5"],
         "bright": ["#00A6FF", "#FFD852", "#FF4250", "#74FDF3", "#B8E36E", "#AC7BF0"],
@@ -2141,6 +2363,14 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Purplepeter": {
         "normal": ["#66D9EF", "#EFDFAC", "#FF796D", "#BA8CFF", "#99B481", "#E78FCD"],
         "bright": ["#79DAED", "#F2E9BF", "#F99F92", "#A0A0D6", "#B4BE8F", "#BA91D4"],
+    },
+    "Pyrokai Light": {
+        "normal": ["#0979C4", "#8E7100", "#B84963", "#008490", "#568413", "#B44A74"],
+        "bright": ["#0F619D", "#735A00", "#943C50", "#006A74", "#456A13", "#913C5D"],
+    },
+    "Pyrokai": {
+        "normal": ["#2AA0F9", "#BB9500", "#EC6785", "#00AEBD", "#75AD2F", "#E76899"],
+        "bright": ["#5BB3FF", "#D0A70E", "#FA8099", "#00C3D3", "#8BBF53", "#F681AC"],
     },
     "Rapture": {
         "normal": ["#6C9BF5", "#FFF09B", "#FC644D", "#64E0FF", "#7AFDE1", "#FF4FA1"],
@@ -2538,6 +2768,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#0000B2", "#999900", "#990000", "#00A6B2", "#00A600", "#B200B2"],
         "bright": ["#0000FF", "#BFBF00", "#E50000", "#00D8D8", "#00D900", "#E500E5"],
     },
+    "Terminal Green 1999": {
+        "normal": ["#7DD3FC", "#00D26A", "#FF5C7A", "#39FF88", "#22C55E", "#9DFF57"],
+        "bright": ["#97DCFD", "#2EDA85", "#FF7D95", "#61FFA0", "#4ED17E", "#B1FF79"],
+    },
     "Thayer Bright": {
         "normal": ["#2757D6", "#F4FD22", "#F92672", "#38C8B5", "#4DF840", "#8C54FE"],
         "bright": ["#3F78FF", "#FEED6C", "#FF5995", "#23CFD5", "#B6E354", "#9E6FFE"],
@@ -2658,13 +2892,25 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
         "normal": ["#6E94B2", "#F3BE7C", "#D8647E", "#AEAED1", "#7FA563", "#BB9DBD"],
         "bright": ["#8BA9C1", "#F5CB96", "#E08398", "#BEBEDA", "#99B782", "#C9B1CA"],
     },
+    "Vaporwave Sunset": {
+        "normal": ["#A78BFA", "#FB923C", "#FB7185", "#FF4FD8", "#2DD4BF", "#22D3EE"],
+        "bright": ["#B9A2FB", "#FCA65F", "#FC8D9D", "#FF72E0", "#57DDCC", "#4EDCF1"],
+    },
     "Vaughn": {
         "normal": ["#5555FF", "#DFAF8F", "#705050", "#8CD0D3", "#60B48A", "#F08CC3"],
         "bright": ["#5555FF", "#F0DFAF", "#DCA3A3", "#93E0E3", "#60B48A", "#EC93D3"],
     },
+    "Velvet Court": {
+        "normal": ["#B392E8", "#F0C44E", "#EE5C82", "#6FD0C8", "#9AD08A", "#D087E0"],
+        "bright": ["#B392E8", "#E8964F", "#EE5C82", "#6FD0C8", "#9AD08A", "#D087E0"],
+    },
     "Vercel": {
         "normal": ["#006AFF", "#FFAE00", "#FC0036", "#00AC96", "#29A948", "#F32882"],
         "bright": ["#49AEFF", "#FFAE00", "#FF8080", "#00E4C4", "#4BE15D", "#F97EA8"],
+    },
+    "Verdigris": {
+        "normal": ["#5FBFB0", "#D9A441", "#D9604F", "#8FD6B0", "#A8B86A", "#B98FB0"],
+        "bright": ["#5FBFB0", "#C97A45", "#D9604F", "#8FD6B0", "#A8B86A", "#B98FB0"],
     },
     "Vesper": {
         "normal": ["#ACA1CF", "#E6B99D", "#F5A191", "#EA83A5", "#90B99F", "#E29ECA"],
@@ -2737,6 +2983,10 @@ PALETTES_ITERM: Final[dict[str, dict[str, list[str]]]] = {
     "Xcode WWDC": {
         "normal": ["#8884C5", "#D28E5D", "#BB383A", "#00ABA4", "#94C66E", "#B73999"],
         "bright": ["#8884C5", "#D28E5D", "#BB383A", "#00ABA4", "#94C66E", "#B73999"],
+    },
+    "Y2K Chrome": {
+        "normal": ["#F97316", "#0891B2", "#DC2626", "#2563EB", "#15803D", "#7C3AED"],
+        "bright": ["#C75C12", "#077792", "#B01E1E", "#1E4FBC", "#116631", "#632EBE"],
     },
     "Zenbones Dark": {
         "normal": ["#6099C0", "#B77E64", "#DE6E7C", "#66A5AD", "#819B69", "#B279A7"],
