@@ -87,11 +87,17 @@ uv run pytest
 
 ```python
 from ggsci import (
-    scale_color_npg, scale_fill_npg,        # Discrete NPG
-    scale_color_flatui,                     # Discrete FlatUI
-    scale_color_gsea, scale_fill_gsea,      # Continuous diverging
-    scale_color_bs5, scale_fill_bs5,        # Continuous sequential
-    pal_npg, pal_flatui, pal_gsea, pal_bs5  # Palette functions
+    scale_color_npg,
+    scale_fill_npg,  # Discrete NPG
+    scale_color_flatui,  # Discrete FlatUI
+    scale_color_gsea,
+    scale_fill_gsea,  # Continuous diverging
+    scale_color_bs5,
+    scale_fill_bs5,  # Continuous sequential
+    pal_npg,
+    pal_flatui,
+    pal_gsea,
+    pal_bs5,  # Palette functions
 )
 ```
 
