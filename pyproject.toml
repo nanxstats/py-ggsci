@@ -1,6 +1,6 @@
 [project]
 name = "ggsci"
-version = "2.2.0"
+version = "2.2.1"
 description = "Plotnine color palettes inspired by plots in scientific journals, data visualization libraries, science fiction movies, and TV shows"
 authors = [{ name = "Nan Xiao", email = "me@nanx.me" }]
 dependencies = ["matplotlib>=3.8.0", "numpy>=1.23.5", "plotnine>=0.14.0"]
@@ -41,8 +41,20 @@ requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-source-exclude = ["/docs", "/scripts", "/AGENTS.md", "/uv.lock", "/zensical.toml"]
-wheel-exclude = ["/docs", "/scripts", "/AGENTS.md", "/uv.lock", "/zensical.toml"]
+source-exclude = [
+    "/docs",
+    "/scripts",
+    "/AGENTS.md",
+    "/uv.lock",
+    "/zensical.toml",
+]
+wheel-exclude = [
+    "/docs",
+    "/scripts",
+    "/AGENTS.md",
+    "/uv.lock",
+    "/zensical.toml",
+]
 
 [dependency-groups]
 dev = [
