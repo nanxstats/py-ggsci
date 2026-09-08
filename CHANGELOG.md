@@ -7,6 +7,9 @@
 - Update GitHub Actions workflows to `actions/checkout@v7` and
   `actions/setup-python@v7` and refresh the disabled Codecov step to
   `codecov/codecov-action@v7` (#76).
+- Replace `hatchling` with `uv_build` as the build backend and declare the MIT
+  license using the PEP 639 `license` field to eliminate the `uv build`
+  warning (#75).
 
 ## py-ggsci 2.2.0
 
