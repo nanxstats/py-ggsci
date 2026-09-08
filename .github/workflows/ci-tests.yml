@@ -17,9 +17,9 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
@@ -34,7 +34,7 @@ jobs:
           pytest --cov=ggsci --cov-report=xml
 
       # - name: Upload coverage reports to Codecov
-      #   uses: codecov/codecov-action@v4
+      #   uses: codecov/codecov-action@v7
       #   with:
       #     name: "py${{ matrix.python-version }}"
       #     token: ${{ secrets.CODECOV_TOKEN }}
@@ -42,9 +42,9 @@ jobs:
   test-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.14"
       - name: Install dependencies
